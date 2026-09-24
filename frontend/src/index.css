@@ -1973,7 +1973,7 @@ html[data-theme="dark"] .toast {
 
   /* ---- Landing Page sections ---- */
   .section {
-    padding: 56px 20px;
+    padding: 32px 20px;
   }
 
   .section-header {
@@ -1981,8 +1981,8 @@ html[data-theme="dark"] .toast {
   }
 
   .hero-inner {
-    gap: 40px;
-    padding: 72px 20px 56px;
+    gap: 24px;
+    padding: 32px 20px 24px;
   }
 
   .hero-headline {
@@ -1995,7 +1995,24 @@ html[data-theme="dark"] .toast {
   }
 
   .hero-images {
-    grid-template-rows: 160px 160px;
+    grid-template-rows: 140px 140px;
+    gap: 8px;
+  }
+  
+  .trip-popover {
+    min-width: 160px;
+    padding: 8px 12px;
+    left: 10px;
+    transform: none;
+    bottom: -10px;
+  }
+  
+  .trip-popover-title {
+    font-size: 11px;
+  }
+  
+  .trip-popover-sub {
+    font-size: 10px;
   }
 
   .features-grid {
@@ -2014,7 +2031,7 @@ html[data-theme="dark"] .toast {
 
   .split-section {
     grid-template-columns: 1fr !important;
-    gap: 40px !important;
+    gap: 24px !important;
   }
 
   .pl-lg,
@@ -2039,6 +2056,11 @@ html[data-theme="dark"] .toast {
   }
   .auth-premium-glass {
     padding: 32px 24px !important;
+  }
+  
+  /* Prevent horizontal scroll */
+  body, html {
+    overflow-x: hidden;
   }
 
   /* ---- Hide on mobile helpers ---- */
