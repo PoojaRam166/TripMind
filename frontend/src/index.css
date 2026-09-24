@@ -2239,6 +2239,10 @@ html[data-theme="dark"] .toast {
     padding-bottom: 8px;
   }
 
+  .map-sidebar {
+    width: 100% !important;
+  }
+
   /* ---- Footer ---- */
   .footer {
     padding: 20px 20px 100px;
@@ -2565,6 +2569,10 @@ html[data-theme="dark"] .toast {
 
 .responsive-flex-column {
   display: flex;
+}
+
+.map-sidebar {
+  width: 320px;
 }
 
 /* Mobile bottom nav: hidden by default on desktop */

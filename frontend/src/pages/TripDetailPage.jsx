@@ -252,7 +252,7 @@ const MapTab = () => {
   return (
     <div className="responsive-flex-column" style={{ gap: '24px', height: '600px' }}>
       {/* Route List */}
-      <div style={{ width: '320px', flexShrink: 0, background: 'var(--color-surface)', borderRadius: '24px', border: '1px solid var(--color-border)', display: 'flex', flexDirection: 'column' }}>
+      <div className="map-sidebar" style={{ flexShrink: 0, background: 'var(--color-surface)', borderRadius: '24px', border: '1px solid var(--color-border)', display: 'flex', flexDirection: 'column' }}>
         <div style={{ padding: '20px', borderBottom: '1px solid var(--color-border)' }}>
           <h3 style={{ fontSize: '16px', fontWeight: 'bold', margin: 0 }}>Day 1 route</h3>
         </div>
@@ -288,7 +288,7 @@ const MapTab = () => {
       <div style={{ flex: 1, background: 'linear-gradient(135deg, #e0e7ff 0%, #dcfce7 100%)', borderRadius: '24px', border: '1px solid var(--color-border)', position: 'relative', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         
         {/* Fake Map Markers */}
-        <div style={{ position: 'relative', width: '400px', height: '300px' }}>
+        <div className="map-placeholder-inner" style={{ position: 'relative', width: '100%', height: '100%', minHeight: '300px' }}>
           <div style={{ position: 'absolute', top: '50px', left: '50px', width: '24px', height: '24px', borderRadius: '50%', background: 'var(--color-ink)', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '11px', fontWeight: 'bold', boxShadow: '0 4px 12px rgba(0,0,0,0.2)' }}>A</div>
           <div style={{ position: 'absolute', top: '200px', left: '200px', width: '24px', height: '24px', borderRadius: '50%', background: 'var(--color-gold-dark)', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '11px', fontWeight: 'bold', boxShadow: '0 4px 12px rgba(0,0,0,0.2)' }}>B</div>
           <div style={{ position: 'absolute', top: '100px', left: '160px', width: '24px', height: '24px', borderRadius: '50%', background: 'var(--color-text-secondary)', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '11px', fontWeight: 'bold', boxShadow: '0 4px 12px rgba(0,0,0,0.2)' }}>C</div>
