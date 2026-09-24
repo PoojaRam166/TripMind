@@ -73,7 +73,7 @@ export default function Navbar() {
           ))}
           <div style={{ height: '1px', background: 'var(--color-border)', margin: '8px 0' }} />
           <Link to="/login" onClick={() => setIsMobileMenuOpen(false)} style={{ padding: '8px 0', fontSize: '18px', fontWeight: 600, color: 'var(--color-text-primary)', textDecoration: 'none' }}>Log In</Link>
-          <Link to="/register" className="btn btn-primary" onClick={() => setIsMobileMenuOpen(false)} style={{ textAlign: 'center', marginTop: '8px', textDecoration: 'none' }}>Start Planning Free</Link>
+          <Link to="/register" className="btn hover-lift" onClick={() => setIsMobileMenuOpen(false)} style={{ textAlign: 'center', marginTop: '8px', textDecoration: 'none', background: 'var(--color-gold)', color: 'var(--color-ink)', borderRadius: '999px', padding: '14px', fontSize: '16px', fontWeight: 800, boxShadow: '0 4px 12px rgba(212,175,55,0.3)', border: 'none' }}>Start Planning Free</Link>
         </div>
       )}
     </nav>
