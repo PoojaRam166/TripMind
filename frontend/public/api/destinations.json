@@ -1,0 +1,212 @@
+[
+  {
+    "id": "dest-1",
+    "image": "https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=1938&auto=format&fit=crop",
+    "title": "Bali",
+    "location": "Indonesia",
+    "price": "₹85,000",
+    "bestTime": "Apr-Oct",
+    "saved": false,
+    "categories": ["Beach", "International"]
+  },
+  {
+    "id": "dest-2",
+    "image": "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=1974&auto=format&fit=crop",
+    "title": "Goa",
+    "location": "India",
+    "price": "₹30,000",
+    "bestTime": "Nov-Feb",
+    "saved": true,
+    "categories": ["Beach", "India", "Weekend"]
+  },
+  {
+    "id": "dest-3",
+    "image": "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80&w=1965&auto=format&fit=crop",
+    "title": "Maldives",
+    "location": "Indian Ocean",
+    "price": "₹1,50,000",
+    "bestTime": "Nov-Mar",
+    "saved": false,
+    "categories": ["Beach", "Trending", "International"]
+  },
+  {
+    "id": "dest-4",
+    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2073&auto=format&fit=crop",
+    "title": "Phuket",
+    "location": "Thailand",
+    "price": "₹40,000",
+    "bestTime": "Nov-Apr",
+    "saved": false,
+    "categories": ["Beach", "Budget-friendly", "International"]
+  },
+  {
+    "id": "dest-5",
+    "image": "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?q=80&w=2070&auto=format&fit=crop",
+    "title": "Manali",
+    "location": "India",
+    "price": "₹25,000",
+    "bestTime": "Oct-Nov",
+    "saved": false,
+    "categories": ["Nature", "India", "Weekend"]
+  },
+  {
+    "id": "dest-6",
+    "image": "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?q=80&w=2070&auto=format&fit=crop",
+    "title": "Rishikesh",
+    "location": "India",
+    "price": "₹15,000",
+    "bestTime": "Oct-Mar",
+    "saved": false,
+    "categories": ["Adventure", "India", "Budget-friendly"]
+  },
+  {
+    "id": "dest-7",
+    "image": "https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?q=80&w=2070&auto=format&fit=crop",
+    "title": "Swiss Alps",
+    "location": "Switzerland",
+    "price": "₹2,00,000",
+    "bestTime": "Dec-Mar",
+    "saved": false,
+    "categories": ["Adventure", "Nature", "International"]
+  },
+  {
+    "id": "dest-8",
+    "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop",
+    "title": "Queenstown",
+    "location": "New Zealand",
+    "price": "₹1,80,000",
+    "bestTime": "Dec-Feb",
+    "saved": false,
+    "categories": ["Adventure", "International", "Trending"]
+  },
+  {
+    "id": "dest-9",
+    "image": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1974&auto=format&fit=crop",
+    "title": "Tokyo",
+    "location": "Japan",
+    "price": "₹1,20,000",
+    "bestTime": "Mar-Apr",
+    "saved": true,
+    "categories": ["Food & Culture", "Trending", "International"]
+  },
+  {
+    "id": "dest-10",
+    "image": "https://images.unsplash.com/photo-1552832230-c0197dd311b5?q=80&w=1996&auto=format&fit=crop",
+    "title": "Rome",
+    "location": "Italy",
+    "price": "₹1,10,000",
+    "bestTime": "Apr-Jun",
+    "saved": false,
+    "categories": ["Food & Culture", "International"]
+  },
+  {
+    "id": "dest-11",
+    "image": "https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=2076&auto=format&fit=crop",
+    "title": "Taj Mahal",
+    "location": "India",
+    "price": "₹10,000",
+    "bestTime": "Oct-Mar",
+    "saved": false,
+    "categories": ["Food & Culture", "India", "Weekend"]
+  },
+  {
+    "id": "dest-12",
+    "image": "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?q=80&w=2020&auto=format&fit=crop",
+    "title": "Paris",
+    "location": "France",
+    "price": "₹1,50,000",
+    "bestTime": "Jun-Aug",
+    "saved": false,
+    "categories": ["Food & Culture", "Trending", "International"]
+  },
+  {
+    "id": "dest-13",
+    "image": "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=2069&auto=format&fit=crop",
+    "title": "Kerala Backwaters",
+    "location": "India",
+    "price": "₹45,000",
+    "bestTime": "Sep-Mar",
+    "saved": false,
+    "categories": ["Nature", "India"]
+  },
+  {
+    "id": "dest-14",
+    "image": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=2070&auto=format&fit=crop",
+    "title": "Kyoto",
+    "location": "Japan",
+    "price": "₹1,15,000",
+    "bestTime": "Mar-May",
+    "saved": false,
+    "categories": ["Nature", "International"]
+  },
+  {
+    "id": "dest-15",
+    "image": "https://images.unsplash.com/photo-1580060839134-75a5edca2e99?q=80&w=2071&auto=format&fit=crop",
+    "title": "Cape Town",
+    "location": "South Africa",
+    "price": "₹1,20,000",
+    "bestTime": "Nov-Mar",
+    "saved": false,
+    "categories": ["Adventure", "International", "Trending"]
+  },
+  {
+    "id": "dest-16",
+    "image": "https://images.unsplash.com/photo-1539037116277-4db20889f2d4?q=80&w=2070&auto=format&fit=crop",
+    "title": "Barcelona",
+    "location": "Spain",
+    "price": "₹1,50,000",
+    "bestTime": "May-Jun",
+    "saved": false,
+    "categories": ["Weekend", "International"]
+  },
+  {
+    "id": "dest-17",
+    "image": "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?q=80&w=2070&auto=format&fit=crop",
+    "title": "Hanoi",
+    "location": "Vietnam",
+    "price": "₹50,000",
+    "bestTime": "Oct-Apr",
+    "saved": false,
+    "categories": ["Budget-friendly", "Food & Culture", "International"]
+  },
+  {
+    "id": "dest-18",
+    "image": "https://images.unsplash.com/photo-1622397333309-3056849bc70b?q=80&w=1974&auto=format&fit=crop",
+    "title": "Ooty",
+    "location": "India",
+    "price": "₹20,000",
+    "bestTime": "Oct-Jun",
+    "saved": false,
+    "categories": ["Nature", "Weekend", "India"]
+  },
+  {
+    "id": "dest-19",
+    "image": "https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?q=80&w=2070&auto=format&fit=crop",
+    "title": "Hampi",
+    "location": "India",
+    "price": "₹18,000",
+    "bestTime": "Oct-Feb",
+    "saved": false,
+    "categories": ["Food & Culture", "Budget-friendly", "India"]
+  },
+  {
+    "id": "dest-20",
+    "image": "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=2070&auto=format&fit=crop",
+    "title": "Ladakh",
+    "location": "India",
+    "price": "₹45,000",
+    "bestTime": "Jun-Sep",
+    "saved": false,
+    "categories": ["Adventure", "India", "Trending"]
+  },
+  {
+    "id": "dest-21",
+    "image": "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=2070&auto=format&fit=crop",
+    "title": "Gokarna",
+    "location": "India",
+    "price": "₹22,000",
+    "bestTime": "Oct-Mar",
+    "saved": false,
+    "categories": ["Beach", "Budget-friendly", "India"]
+  }
+]
