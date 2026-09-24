@@ -206,12 +206,12 @@ export default function GlobalAssistantWidget() {
         }
         @media (max-width: 480px) {
           .assistant-widget-container {
-            bottom: 16px !important;
+            bottom: 90px !important;
             right: 16px !important;
           }
           .assistant-chat-panel {
             width: calc(100vw - 32px) !important;
-            bottom: 72px !important;
+            bottom: 140px !important;
             right: 0 !important;
           }
         }

@@ -2070,14 +2070,14 @@ html[data-theme="dark"] .toast {
 
   /* ---- Dashboard layout: full-width no sidebar ---- */
   .dashboard-layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
     height: 100vh;
     overflow-x: hidden;
     position: relative;
   }
 
   .dashboard-sidebar {
-    display: none;
+    display: none !important;
   }
 
   .dashboard-content {
