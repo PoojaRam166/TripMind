@@ -72,42 +72,40 @@ export default function Hero() {
         </div>
 
         {/* Right: Image Grid */}
-        <div className="relative mt-8 md:mt-0 w-full h-full min-h-[400px] md:min-h-0">
-          <div className="grid grid-cols-1 md:grid-cols-2 grid-rows-[minmax(180px,1fr)_minmax(180px,1fr)] gap-3 sm:gap-4 h-full">
-            {/* Top-left image - Manali */}
-            <div className="hero-img rounded-2xl overflow-hidden relative shadow-md hidden md:block">
+        <div style={{ position: 'relative' }}>
+          <div className="hero-images">
+            {/* Top-left image */}
+            <div className="hero-img" style={{ gridColumn: 1, gridRow: 1 }}>
               <img
                 src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=800&auto=format&fit=crop&q=80"
                 alt="Manali snow peaks"
-                className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
               />
             </div>
 
-            {/* Right tall image - Bali (Hero focus on mobile) */}
-            <div className="hero-img rounded-2xl md:rounded-3xl overflow-hidden relative shadow-lg row-span-2 col-span-1 md:col-start-2 h-[350px] md:h-auto">
+            {/* Right tall image */}
+            <div
+              className="hero-img hero-img-tall"
+              style={{ gridColumn: 2, gridRow: '1 / 3' }}
+            >
               <img
                 src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&auto=format&fit=crop&q=80"
                 alt="Bali temple"
-                className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
               />
             </div>
 
-            {/* Bottom-left image - Paris */}
-            <div className="hero-img rounded-2xl overflow-hidden relative shadow-md hidden md:block">
+            {/* Bottom-left image */}
+            <div className="hero-img" style={{ gridColumn: 1, gridRow: 2 }}>
               <img
                 src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=800&auto=format&fit=crop&q=80"
                 alt="Paris Eiffel Tower"
-                className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
               />
               {/* Trip Created popover */}
-              <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-white rounded-xl shadow-xl px-4 py-3 flex items-center gap-3 min-w-[200px] z-10 border border-gray-100">
-                <span className="w-2.5 h-2.5 bg-green-500 rounded-full shrink-0" />
+              <div className="trip-popover">
+                <span className="trip-popover-dot" />
                 <div>
-                  <div className="text-sm font-bold text-gray-900 mb-0.5">Trip Created!</div>
-                  <div className="text-xs text-gray-500 font-medium">Goa · 5 days · ₹28,500</div>
-                  <div className="h-1 bg-gray-100 rounded-full mt-2 overflow-hidden">
-                    <div className="h-full bg-green-500 w-2/3 rounded-full" />
-                  </div>
+                  <div className="trip-popover-title">Trip Created!</div>
+                  <div className="trip-popover-sub">Goa · 5 days · ₹28,500</div>
+                  <div className="trip-popover-bar" />
                 </div>
               </div>
             </div>

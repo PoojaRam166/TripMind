@@ -23,20 +23,20 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-[220px_1fr] lg:grid-cols-[260px_1fr] h-screen w-screen overflow-hidden bg-[var(--color-surface-2)] relative">
-      {/* Fixed Left Sidebar - Hidden on mobile, visible on md+ */}
-      <aside className="hidden md:flex flex-col bg-black border-r border-white/10 h-screen overflow-y-auto z-20 relative">
+    <div className="dashboard-layout">
+      {/* Fixed Left Sidebar */}
+      <aside className="dashboard-sidebar">
         <Sidebar />
       </aside>
 
       {/* Main scrollable content area */}
-      <main className="flex flex-col h-screen overflow-y-auto overflow-x-hidden relative">
+      <main className="dashboard-main">
         <TopNav />
 
-        <div className="flex-1 w-full max-w-[1400px] mx-auto p-4 sm:p-6 lg:p-10 pb-[100px] md:pb-10">
+        <div className="dashboard-content" style={{ maxWidth: '1400px', margin: '0 auto', width: '100%' }}>
 
           <div className="animate-fade-in-up">
-            {loading ? <div className="h-[200px] sm:h-[280px]" /> : <AIHero />}
+            {loading ? <div style={{ height: '280px' }} /> : <AIHero />}
           </div>
 
           {!loading && hasTrips && (
@@ -45,7 +45,7 @@ export default function HomePage() {
                 <UpcomingTrips />
               </div>
 
-              <div className="animate-fade-in-up delay-200 grid grid-cols-1 md:grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-6 md:gap-10 mb-8 md:mb-10">
+              <div className="animate-fade-in-up delay-200" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '40px', marginBottom: '40px' }}>
                 <ContinuePlanning />
                 <RecentActivity />
               </div>

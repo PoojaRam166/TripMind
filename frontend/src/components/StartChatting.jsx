@@ -4,48 +4,48 @@ import chatMockup from '../assets/chat-mockup.png';
 
 export default function StartChatting() {
   return (
-    <section className="py-12 sm:py-20 bg-[var(--color-surface-2)]" id="chat">
-      <div className="w-full max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8 flex flex-col md:flex-row items-center gap-12 md:gap-16">
+    <section className="section" id="chat" style={{ background: 'var(--color-surface-2)' }}>
+      <div className="section-inner split-section" style={{ gridTemplateColumns: '40% 60%', gap: '40px' }}>
         
         {/* Left: Text Content */}
-        <div className="flex-[0.4] text-center md:text-left order-2 md:order-1">
-          <h2 className="m-0 text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 tracking-tight leading-tight mb-4">
-            Start chatting<br className="hidden md:block" />with us.
+        <div className="text-content pl-lg">
+          <h2 className="section-title text-left" style={{ fontSize: 'clamp(36px, 4.5vw, 52px)', lineHeight: 1.15, letterSpacing: '-1.5px', color: 'var(--color-text-primary)' }}>
+            Start chatting<br/>with us.
           </h2>
-          <p className="m-0 text-base sm:text-lg text-gray-500 font-medium leading-relaxed">
+          <p className="section-subtitle text-left mt-4" style={{ color: 'var(--color-text-secondary)' }}>
             Ask for suggestions for any destination or an entire itinerary. Tell us how you like to travel, what you look for in a new place, and any preferences or pet peeves you have. The more you share, the more personalized your recommendations and plans become.
           </p>
         </div>
 
         {/* Right: Mockup Visual */}
-        <div className="flex-[0.6] flex flex-col items-center justify-center w-full order-1 md:order-2 transform scale-95 sm:scale-100">
+        <div className="chat-mockup-container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
           
           {/* Static Image with the bottom fake chat completely cropped out, and blended into the background */}
-          <div className="w-full max-w-[650px] relative z-[1] mix-blend-multiply drop-shadow-2xl">
+          <div style={{ width: '100%', maxWidth: '650px', mixBlendMode: 'multiply', filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.05))', position: 'relative', zIndex: 1 }}>
             <img 
               src={chatMockup} 
               alt="Start Chatting Mockup" 
-              className="w-full h-auto block"
+              style={{ width: '100%', height: 'auto', display: 'block' }} 
             />
           </div>
 
           {/* Real Interactive Chat Input */}
-          <div className="relative w-full max-w-[680px] z-10 bg-white border-[3px] border-[var(--color-ink)] rounded-[32px] px-4 py-3 sm:px-6 sm:py-4 flex flex-col sm:flex-row items-center justify-between shadow-2xl mt-4 sm:-mt-8">
-             <div className="flex-1 w-full text-center sm:text-left mb-3 sm:mb-0">
-                <span className="text-gray-400 text-base sm:text-lg">|Ask us anything...</span>
+          <div className="chat-input-bar shadow-lg" style={{ position: 'relative', width: '100%', maxWidth: '680px', zIndex: 10, background: 'var(--color-surface)', border: '3px solid var(--color-ink)', borderRadius: '32px', padding: '16px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+             <div className="chat-input-content" style={{ flex: 1 }}>
+                <span className="placeholder" style={{ color: 'var(--color-text-muted)', fontSize: '18px' }}>|Ask us anything...</span>
              </div>
-             <div className="flex items-center justify-between sm:justify-end gap-4 sm:gap-5 w-full sm:w-auto">
-                <div className="flex items-center gap-3 sm:gap-4">
-                   <div className="w-7 h-7 rounded-full bg-gray-100 flex items-center justify-center">
-                     <Plus size={16} className="text-gray-400" />
+             <div className="chat-input-actions" style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+                <div className="action-icons" style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+                   <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: '#f3f4f6', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                     <Plus size={16} color="var(--color-text-muted)" />
                    </div>
-                   <Smile size={20} className="text-gray-400" />
-                   <span className="text-gray-400 text-lg sm:text-xl font-medium">@</span>
+                   <Smile size={20} color="var(--color-text-muted)" />
+                   <span style={{ color: 'var(--color-text-muted)', fontSize: '20px', fontWeight: '500' }}>@</span>
                 </div>
-                <div className="flex items-center gap-3 sm:gap-4">
-                   <Mic size={20} className="text-gray-400 hidden sm:block" />
-                   <div className="w-9 h-9 rounded-full bg-[var(--color-ink)] flex items-center justify-center shadow-md">
-                      <Send size={16} color="white" className="-ml-0.5" />
+                <div className="send-actions" style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+                   <Mic size={20} color="var(--color-text-muted)" />
+                   <div className="send-btn shadow-sm" style={{ background: 'var(--color-ink)', width: '36px', height: '36px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <Send size={16} color="white" style={{ marginLeft: '-2px' }} />
                    </div>
                 </div>
              </div>

@@ -315,8 +315,9 @@ const MapTab = () => {
 
 const PlacesTab = () => {
   const [sortBy, setSortBy] = useState('recommended');
+  const [isSearching, setIsSearching] = useState(false);
 
-  const places = [
+  const [places, setPlaces] = useState([
     {
       name: 'Dudhsagar Waterfalls',
       category: 'Nature & Wildlife',
@@ -365,7 +366,33 @@ const PlacesTab = () => {
       image: 'https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?w=600&h=400&fit=crop',
       description: 'Take a guided tour through lush plantations and learn about authentic Goan spices.'
     }
-  ];
+  ]);
+
+  const handleFindMore = () => {
+    if (isSearching) return;
+    setIsSearching(true);
+    setTimeout(() => {
+      setPlaces(prev => [...prev, 
+        {
+          name: 'Chapora Fort',
+          category: 'Sightseeing',
+          rating: 4.3,
+          reviews: 1200,
+          image: 'https://images.unsplash.com/photo-1614082242765-7c98ca0f3df3?w=600&h=400&fit=crop',
+          description: 'A historic fort with stunning sunset views of the coastline, made famous by Bollywood movies.'
+        },
+        {
+          name: 'Aguada Fort',
+          category: 'History',
+          rating: 4.5,
+          reviews: 3100,
+          image: 'https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=600&h=400&fit=crop',
+          description: 'A well-preserved seventeenth-century Portuguese fort standing on Sinquerim beach.'
+        }
+      ]);
+      setIsSearching(false);
+    }, 1500);
+  };
 
   const sortedPlaces = [...places].sort((a, b) => {
     if (sortBy === 'rating') return b.rating - a.rating;
@@ -396,9 +423,9 @@ const PlacesTab = () => {
             />
           </div>
 
-          <button style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'var(--color-ink)', color: 'white', border: 'none', padding: '10px 20px', borderRadius: '12px', fontWeight: 'bold', cursor: 'pointer', fontSize: '14px', height: '44px' }}>
+          <button onClick={handleFindMore} disabled={isSearching} style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'var(--color-ink)', color: 'white', border: 'none', padding: '10px 20px', borderRadius: '12px', fontWeight: 'bold', cursor: isSearching ? 'wait' : 'pointer', fontSize: '14px', height: '44px', opacity: isSearching ? 0.7 : 1 }}>
             <Search size={16} color="var(--color-gold-light)" />
-            Find more places
+            {isSearching ? 'Finding...' : 'Find more places'}
           </button>
         </div>
       </div>
@@ -434,8 +461,9 @@ const PlacesTab = () => {
 
 const HotelsTab = () => {
   const [sortBy, setSortBy] = useState('recommended');
+  const [isSearching, setIsSearching] = useState(false);
 
-  const hotels = [
+  const [hotels, setHotels] = useState([
     {
       name: 'Taj Exotica Resort & Spa',
       location: 'Benaulim, South Goa',
@@ -490,7 +518,35 @@ const HotelsTab = () => {
       image: 'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=600&h=400&fit=crop',
       description: 'A village-style beachfront resort set across 45 acres with shimmering waterways and Indo-Portuguese charm.'
     }
-  ];
+  ]);
+
+  const handleSearchMore = () => {
+    if (isSearching) return;
+    setIsSearching(true);
+    setTimeout(() => {
+      setHotels(prev => [...prev,
+        {
+          name: 'Grand Hyatt Goa',
+          location: 'Bambolim, North Goa',
+          rating: 4.6,
+          reviews: 5200,
+          price: '₹19,000/night',
+          image: 'https://images.unsplash.com/photo-1542314831-c53cd4185af1?w=600&h=400&fit=crop',
+          description: 'A luxurious 5-star resort overlooking Bambolim Bay with multiple pools and fine dining.'
+        },
+        {
+          name: 'Hard Rock Hotel',
+          location: 'Calangute, North Goa',
+          rating: 4.4,
+          reviews: 2800,
+          price: '₹11,500/night',
+          image: 'https://images.unsplash.com/photo-1551882547-ff40c0d5b5df?w=600&h=400&fit=crop',
+          description: 'Music-inspired resort located in the heart of Calangute, featuring live performances and rock memorabilia.'
+        }
+      ]);
+      setIsSearching(false);
+    }, 1500);
+  };
 
   const sortedHotels = [...hotels].sort((a, b) => {
     if (sortBy === 'rating') return b.rating - a.rating;
@@ -523,9 +579,9 @@ const HotelsTab = () => {
             />
           </div>
 
-          <button style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'var(--color-ink)', color: 'white', border: 'none', padding: '10px 20px', borderRadius: '12px', fontWeight: 'bold', cursor: 'pointer', fontSize: '14px', height: '44px' }}>
+          <button onClick={handleSearchMore} disabled={isSearching} style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'var(--color-ink)', color: 'white', border: 'none', padding: '10px 20px', borderRadius: '12px', fontWeight: 'bold', cursor: isSearching ? 'wait' : 'pointer', fontSize: '14px', height: '44px', opacity: isSearching ? 0.7 : 1 }}>
             <Search size={16} color="var(--color-gold-light)" />
-            Search hotels
+            {isSearching ? 'Searching...' : 'Search hotels'}
           </button>
         </div>
       </div>

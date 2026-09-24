@@ -53,6 +53,7 @@ export default function Navbar() {
             {isMobileMenuOpen ? <X size={28} color="var(--color-ink)" /> : <Menu size={28} color="var(--color-ink)" />}
           </button>
         </div>
+      </div>
       </nav>
       {/* Mobile Menu Dropdown (Full Screen Overlay) */}
       {isMobileMenuOpen && (
