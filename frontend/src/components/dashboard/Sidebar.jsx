@@ -47,19 +47,19 @@ export default function Sidebar({ activeRoute }) {
   ];
 
   return (
-    <div className="sidebar-wrapper" style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+    <div className="flex flex-col h-full bg-black">
       {/* Logo */}
-      <div className="sidebar-logo-container" style={{ padding: '32px 24px 24px' }}>
-        <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none', color: 'var(--color-gold)' }}>
-          <div style={{ width: 32, height: 32, background: 'var(--color-gold)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <div className="p-8 pb-6">
+        <Link to="/" className="flex items-center gap-2 no-underline text-[var(--color-gold)]">
+          <div className="w-8 h-8 bg-[var(--color-gold)] rounded-full flex items-center justify-center">
             <Plane size={18} color="var(--color-ink)" strokeWidth={2.5} />
           </div>
-          <span style={{ fontSize: '20px', fontWeight: 'bold' }}>TripMind</span>
+          <span className="text-xl font-bold">TripMind</span>
         </Link>
       </div>
 
       {/* Navigation Links */}
-      <nav className="sidebar-nav-container" style={{ flex: 1, padding: '0 16px', display: 'flex', flexDirection: 'column', gap: '4px' }}>
+      <nav className="flex-1 px-4 flex flex-col gap-1">
         {navItems.map((item) => {
           const isActive = item.label === currentActive;
           return (
@@ -70,25 +70,14 @@ export default function Sidebar({ activeRoute }) {
                   navigate(item.path);
                 }
               }}
-              className={`sidebar-link ${isActive ? 'active' : ''}`}
-              style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}
+              className={`flex items-center justify-between px-4 py-3 rounded-xl cursor-pointer transition-all duration-200 ${isActive ? 'bg-[var(--color-gold)] text-[var(--color-ink)] font-semibold shadow-[0_4px_12px_rgba(184,147,90,0.25)]' : 'text-white/65 hover:bg-white/10 hover:text-white font-medium'}`}
             >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+              <div className="flex items-center gap-3">
                 {item.icon}
                 <span>{item.label}</span>
               </div>
               {item.badge && (
-                <span style={{
-                  marginLeft: 'auto',
-                  background: 'transparent',
-                  color: isActive ? 'inherit' : 'var(--color-gold)',
-                  fontSize: '13px',
-                  fontWeight: 'bold',
-                  letterSpacing: '0.5px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '4px'
-                }}>
+                <span className={`flex items-center gap-1 text-[13px] font-bold tracking-wide ml-auto ${isActive ? 'text-[var(--color-ink)]' : 'text-[var(--color-gold)]'}`}>
                   <Sparkles size={14} strokeWidth={2.5} />
                   {item.badge}
                 </span>
@@ -98,17 +87,14 @@ export default function Sidebar({ activeRoute }) {
         })}
       </nav>
 
-      <div 
-        className="sidebar-profile-container" 
-        style={{ display: 'flex', alignItems: 'center', gap: '12px', padding: '20px 24px', borderTop: '1px solid var(--color-border)', marginTop: 'auto' }} 
-      >
-        <div style={{ width: '44px', height: '44px', background: 'linear-gradient(135deg, var(--color-gold) 0%, #a67c00 100%)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '800', fontSize: '18px', color: 'var(--color-ink)', boxShadow: '0 4px 12px rgba(212,175,55,0.3)' }}>
+      <div className="flex items-center gap-3 p-5 px-6 border-t border-white/10 mt-auto">
+        <div className="w-11 h-11 bg-gradient-to-br from-[var(--color-gold)] to-[#a67c00] rounded-full flex items-center justify-center font-extrabold text-lg text-[var(--color-ink)] shadow-[0_4px_12px_rgba(212,175,55,0.3)]">
           P
         </div>
-        <div style={{ flex: 1 }}>
-          <p style={{ fontSize: '15px', fontWeight: 700, color: 'white', margin: 0, letterSpacing: '-0.3px' }}>Poojitha</p>
-          <div style={{ marginTop: '2px' }}>
-            <span style={{ fontSize: '11px', color: 'rgba(255, 255, 255, 0.6)', fontWeight: '500' }}>
+        <div className="flex-1">
+          <p className="text-[15px] font-bold text-white m-0 tracking-tight">Poojitha</p>
+          <div className="mt-0.5">
+            <span className="text-[11px] text-white/60 font-medium">
               Free Plan
             </span>
           </div>
