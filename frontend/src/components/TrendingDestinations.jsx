@@ -4,10 +4,10 @@ import { destinations } from '../data/landingData';
 
 export default function TrendingDestinations() {
   return (
-    <section className="section trending-section" id="destinations">
-      <div className="section-inner">
-        <div className="trending-header">
-          <h2 className="section-title" style={{ fontSize: 'clamp(36px, 4.5vw, 52px)', lineHeight: 1.15, letterSpacing: '-1.5px', margin: 0 }}>Trending destinations</h2>
+    <section className="py-12 sm:py-24 bg-[var(--color-surface-2)]" id="destinations">
+      <div className="w-full max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8">
+        <div className="mb-10 sm:mb-12 text-center md:text-left">
+          <h2 className="m-0 text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 tracking-tight leading-tight">Trending destinations</h2>
         </div>
 
         <div className="destinations-grid">
