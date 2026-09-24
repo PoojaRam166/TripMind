@@ -54,26 +54,38 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu Dropdown */}
+      {/* Mobile Menu Dropdown (Full Screen Overlay) */}
       {isMobileMenuOpen && (
-        <div className="mobile-nav-dropdown" style={{ 
-          position: 'absolute', top: '100%', left: 0, width: '100%', background: 'var(--color-surface)', 
-          borderBottom: '1px solid var(--color-border)', padding: '16px 24px', display: 'flex', 
-          flexDirection: 'column', gap: '16px', boxShadow: '0 10px 20px rgba(0,0,0,0.05)', zIndex: 1000
-        }}>
-          {navLinks.map((link) => (
-            <a 
-              key={link.label} 
-              href={`/#${link.id}`} 
-              onClick={() => setIsMobileMenuOpen(false)}
-              style={{ padding: '8px 0', fontSize: '18px', fontWeight: 600, color: 'var(--color-text-primary)', textDecoration: 'none' }}
-            >
-              {link.label}
-            </a>
-          ))}
-          <div style={{ height: '1px', background: 'var(--color-border)', margin: '8px 0' }} />
-          <Link to="/login" onClick={() => setIsMobileMenuOpen(false)} style={{ padding: '8px 0', fontSize: '18px', fontWeight: 600, color: 'var(--color-text-primary)', textDecoration: 'none' }}>Log In</Link>
-          <Link to="/register" className="btn hover-lift" onClick={() => setIsMobileMenuOpen(false)} style={{ textAlign: 'center', marginTop: '8px', textDecoration: 'none', background: 'var(--color-gold)', color: 'var(--color-ink)', borderRadius: '999px', padding: '14px', fontSize: '16px', fontWeight: 800, boxShadow: '0 4px 12px rgba(212,175,55,0.3)', border: 'none' }}>Start Planning Free</Link>
+        <div className="fixed inset-0 z-[900] bg-white pt-[80px] flex flex-col h-[100dvh] overflow-y-auto">
+          <div className="flex flex-col gap-6 px-6 py-8">
+            {navLinks.map((link) => (
+              <a 
+                key={link.label} 
+                href={`/#${link.id}`} 
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-2xl font-bold text-gray-900 no-underline"
+              >
+                {link.label}
+              </a>
+            ))}
+            <div className="h-px bg-gray-100 my-4" />
+            <div className="flex flex-col gap-4">
+              <Link 
+                to="/login" 
+                onClick={() => setIsMobileMenuOpen(false)} 
+                className="text-2xl font-bold text-gray-900 no-underline"
+              >
+                Log In
+              </Link>
+              <Link 
+                to="/register" 
+                onClick={() => setIsMobileMenuOpen(false)} 
+                className="bg-[var(--color-gold)] text-[var(--color-ink)] text-center rounded-full py-4 px-6 text-lg font-black shadow-[0_4px_12px_rgba(212,175,55,0.3)] no-underline mt-4 active:scale-95 transition-transform"
+              >
+                Start Planning Free
+              </Link>
+            </div>
+          </div>
         </div>
       )}
     </nav>
