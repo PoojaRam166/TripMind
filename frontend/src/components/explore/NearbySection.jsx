@@ -12,12 +12,12 @@ export default function NearbySection() {
   if (nearby.length === 0) return null;
 
   return (
-    <div style={{ padding: '0 40px 60px' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
-        <h3 style={{ fontSize: '24px', fontWeight: 'bold', color: 'var(--color-text-primary)', margin: 0, display: 'flex', alignItems: 'center', gap: '8px' }}>
-          Explore Destinations near you <Navigation size={22} color="var(--color-gold)" fill="var(--color-gold)" />
+    <div className="px-4 md:px-10 pb-12 md:pb-[60px]">
+      <div className="flex flex-row justify-between items-center mb-6 gap-4">
+        <h3 className="text-xl sm:text-2xl font-bold text-gray-900 m-0 flex items-center gap-2">
+          Explore Destinations near you <Navigation size={22} className="text-[var(--color-gold)] fill-[var(--color-gold)] shrink-0" />
         </h3>
-        <button className="btn-view-all">
+        <button className="btn-view-all shrink-0 whitespace-nowrap">
           View on map <span>&rarr;</span>
         </button>
       </div>

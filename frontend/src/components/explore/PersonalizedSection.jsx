@@ -12,9 +12,9 @@ export default function PersonalizedSection() {
   if (picks.length === 0) return null;
 
   return (
-    <div style={{ padding: '0 40px 60px' }}>
-      <h3 style={{ fontSize: '24px', fontWeight: 'bold', color: 'var(--color-text-primary)', margin: '0 0 24px 0', display: 'flex', alignItems: 'center', gap: '8px' }}>
-        <Sparkles size={24} color="var(--color-gold)" fill="var(--color-gold)" /> Picked for you
+    <div className="px-4 md:px-10 pb-12 md:pb-[60px]">
+      <h3 className="text-xl sm:text-2xl font-bold text-gray-900 m-0 mb-6 flex items-center gap-2">
+        <Sparkles size={24} className="text-[var(--color-gold)] fill-[var(--color-gold)] shrink-0" /> Picked for you
       </h3>
       
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '24px' }}>
