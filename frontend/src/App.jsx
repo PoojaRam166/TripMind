@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
 import RegisterPage from './pages/RegisterPage';
 import LoginPage from './pages/LoginPage';
@@ -18,6 +18,13 @@ import NotificationsPage from './pages/NotificationsPage';
 import SettingsPage from './pages/SettingsPage';
 import GlobalAssistantWidget from './components/GlobalAssistantWidget';
 import { ToastProvider } from './components/ToastContext';
+
+function GlobalWidgetWrapper() {
+  const location = useLocation();
+  const publicRoutes = ['/', '/login', '/register', '/forgot-password', '/reset-password'];
+  if (publicRoutes.includes(location.pathname)) return null;
+  return <GlobalAssistantWidget />;
+}
 
 export default function App() {
   return (
@@ -41,7 +48,7 @@ export default function App() {
             <Route path="/forgot-password" element={<ForgotPasswordPage />} />
             <Route path="/reset-password" element={<ResetPasswordPage />} />
           </Routes>
-          <GlobalAssistantWidget />
+          <GlobalWidgetWrapper />
       </BrowserRouter>
     </ToastProvider>
   );
