@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Search, Bell, Home, Compass, MapPin, Briefcase, Settings, User, LogOut } from 'lucide-react';
+import { Search, Bell, Home, Compass, MapPin, Briefcase, Settings, User, LogOut, Bookmark } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import SearchModal from './SearchModal';
 
@@ -32,6 +32,7 @@ export default function TopNav({ title: propTitle }) {
     { label: 'Explore', icon: <Compass size={20} />,   path: '/explore' },
     { label: 'Plan',    icon: <MapPin size={20} />,    path: '/plan' },
     { label: 'Trips',   icon: <Briefcase size={20} />, path: '/trips' },
+    { label: 'Saved',   icon: <Bookmark size={20} />,  path: '/saved-places' },
   ];
 
   const currentPath = location.pathname;

@@ -99,40 +99,33 @@ export default function SavedPlacesPage() {
 
   return (
     <div className="dashboard-layout page-transition">
-      <aside className="dashboard-sidebar">
+      <aside className="hidden md:flex flex-col bg-black border-r border-white/10 h-screen overflow-y-auto z-20 relative">
         <Sidebar activeRoute="Saved Places" />
       </aside>
 
-      <main className="dashboard-main">
+      <main className="flex flex-col h-screen overflow-y-auto overflow-x-hidden relative">
         <TopNav title="Saved Places" />
 
-        <div className="dashboard-content" style={{ maxWidth: '1300px', margin: '0 auto', width: '100%', padding: '32px 48px 80px' }}>
+        <div className="flex-1 w-full max-w-[1300px] mx-auto p-4 sm:p-6 lg:p-10 pb-[100px] md:pb-10">
 
           {/* ── Gold Hero Banner ── */}
-          <div style={{
-            background: 'linear-gradient(135deg, var(--color-ink) 0%, #1a1400 60%, #2a1f00 100%)',
-            padding: '48px 48px 56px',
-            margin: '0 0 32px 0',
-            borderRadius: '24px',
-            position: 'relative',
-            overflow: 'hidden',
-          }}>
-            <div style={{ position: 'absolute', top: '-40px', right: '-40px', width: '260px', height: '260px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(184,147,90,0.25) 0%, transparent 70%)', pointerEvents: 'none' }} />
-            <div style={{ position: 'absolute', bottom: '-60px', left: '30%', width: '360px', height: '360px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(184,147,90,0.12) 0%, transparent 70%)', pointerEvents: 'none' }} />
-            <div style={{ position: 'absolute', top: '20px', right: '20%', width: '160px', height: '160px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(212,174,120,0.15) 0%, transparent 70%)', pointerEvents: 'none' }} />
+          <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl p-6 sm:p-10 md:p-12 mb-6 sm:mb-8" style={{ background: 'linear-gradient(135deg, var(--color-ink) 0%, #1a1400 60%, #2a1f00 100%)' }}>
+            <div className="absolute -top-10 -right-10 w-40 sm:w-64 h-40 sm:h-64 rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(184,147,90,0.25) 0%, transparent 70%)' }} />
+            <div className="absolute -bottom-10 left-1/4 w-60 sm:w-96 h-60 sm:h-96 rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(184,147,90,0.12) 0%, transparent 70%)' }} />
+            <div className="absolute top-5 right-1/4 w-32 sm:w-40 h-32 sm:h-40 rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(212,174,120,0.15) 0%, transparent 70%)' }} />
 
-            <div style={{ position: 'relative', zIndex: 1, display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '20px', flexWrap: 'wrap' }}>
+            <div className="relative z-10 flex flex-col md:flex-row items-start justify-between gap-5">
               <div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
-                  <div style={{ width: '36px', height: '36px', borderRadius: '10px', background: 'var(--color-gold)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <div className="flex items-center gap-2 mb-3">
+                  <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg flex items-center justify-center bg-[var(--color-gold)]">
                     <Bookmark size={18} color="var(--color-ink)" fill="var(--color-ink)" />
                   </div>
-                  <span style={{ fontSize: '12px', fontWeight: 700, color: 'var(--color-gold)', textTransform: 'uppercase', letterSpacing: '1.5px' }}>TripMind</span>
+                  <span className="text-[11px] sm:text-[12px] font-bold uppercase tracking-wider text-[var(--color-gold)]">TripMind</span>
                 </div>
-                <h1 style={{ fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: 900, color: 'white', margin: '0 0 8px', letterSpacing: '-1px', lineHeight: 1.1 }}>
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-white m-0 mb-2 tracking-tight leading-tight">
                   Saved Places
                 </h1>
-                <p style={{ margin: 0, fontSize: '15px', color: 'rgba(255,255,255,0.6)', fontWeight: 500 }}>
+                <p className="m-0 text-sm sm:text-[15px] font-medium text-white/60">
                   {SAVED_PLACES.length} places saved
                 </p>
               </div>
@@ -199,41 +192,24 @@ export default function SavedPlacesPage() {
 
           {/* ── Grid Section ── */}
           {filteredPlaces.length > 0 ? (
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
-              gap: '24px'
-            }}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {filteredPlaces.map(place => (
-                <div key={place.id} className="hover-lift" style={{
-                  background: 'var(--color-surface)',
-                  borderRadius: '16px',
-                  border: '1px solid var(--color-border)',
-                  overflow: 'hidden',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  boxShadow: 'var(--shadow-sm)'
-                }}>
+                <div key={place.id} className="hover-lift flex flex-col bg-[var(--color-surface)] rounded-2xl border border-[var(--color-border)] overflow-hidden shadow-sm">
                   {/* Image */}
-                  <div style={{ height: '180px', position: 'relative' }}>
-                    <img src={place.image} alt={place.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                    <div style={{
-                      position: 'absolute', top: '12px', right: '12px',
-                      background: 'var(--color-surface)', borderRadius: '50%', width: '32px', height: '32px',
-                      display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
-                    }}>
+                  <div className="h-48 relative">
+                    <img src={place.image} alt={place.title} className="w-full h-full object-cover" />
+                    <div className="absolute top-3 right-3 bg-[var(--color-surface)] rounded-full w-8 h-8 flex items-center justify-center shadow-md">
                       <Bookmark size={16} fill="var(--color-ink)" color="var(--color-ink)" />
                     </div>
                   </div>
 
                   {/* Content */}
-                  <div style={{ padding: '20px', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                    <h3 style={{ margin: '0 0 12px 0', fontSize: '18px', fontWeight: 'bold', color: 'var(--color-text-primary)' }}>
+                  <div className="p-5 flex-1 flex flex-col">
+                    <h3 className="m-0 mb-3 text-lg font-bold text-[var(--color-text-primary)] leading-tight">
                       {place.title}
                     </h3>
 
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
+                    <div className="flex items-center gap-3 mb-3">
                       <span style={{
                         background: 'var(--color-gold-muted)',
                         color: 'var(--color-gold-dark)',
