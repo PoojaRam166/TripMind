@@ -1,11 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Search, Bell, Home, Compass, MapPin, Briefcase, Settings, User, LogOut, Bookmark } from 'lucide-react';
+import { Search, Bell, Home, Compass, MapPin, Briefcase, Settings, User, LogOut, Bookmark, Menu, X } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import SearchModal from './SearchModal';
+import Sidebar from './Sidebar';
 
 export default function TopNav({ title: propTitle }) {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const profileRef = useRef(null);
   const location = useLocation();
   const navigate = useNavigate();
@@ -32,7 +34,7 @@ export default function TopNav({ title: propTitle }) {
     { label: 'Explore', icon: <Compass size={20} />,   path: '/explore' },
     { label: 'Plan',    icon: <MapPin size={20} />,    path: '/plan' },
     { label: 'Trips',   icon: <Briefcase size={20} />, path: '/trips' },
-    { label: 'Saved',   icon: <Bookmark size={20} />,  path: '/saved-places' },
+    { label: 'Menu',    icon: <Menu size={20} />,      path: '#menu' },
   ];
 
   const currentPath = location.pathname;
@@ -190,20 +192,35 @@ export default function TopNav({ title: propTitle }) {
       <nav className="mobile-bottom-nav">
         {mobileNavItems.map((item) => {
           const isActive =
-            currentPath === item.path ||
-            (item.path !== '#' && currentPath.startsWith(item.path));
+            (currentPath === item.path ||
+            (item.path !== '#' && item.path !== '#menu' && currentPath.startsWith(item.path))) ||
+            (item.path === '#menu' && isMobileMenuOpen);
           return (
             <button
               key={item.label}
               className={`mobile-bottom-nav-item${isActive ? ' active' : ''}`}
-              onClick={() => item.path !== '#' && navigate(item.path)}
+              onClick={() => {
+                if (item.path === '#menu') {
+                  setIsMobileMenuOpen(!isMobileMenuOpen);
+                } else if (item.path !== '#') {
+                  setIsMobileMenuOpen(false);
+                  navigate(item.path);
+                }
+              }}
             >
-              {item.icon}
+              {item.path === '#menu' && isMobileMenuOpen ? <X size={20} /> : item.icon}
               {item.label}
             </button>
           );
         })}
       </nav>
+
+      {/* Full-Screen Mobile Drawer for remaining sidebar options */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden fixed inset-0 z-50 bg-black pt-safe-top overflow-y-auto" style={{ top: 0, bottom: '60px' }}>
+          <Sidebar activeRoute={title} />
+        </div>
+      )}
 
       <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
     </>
