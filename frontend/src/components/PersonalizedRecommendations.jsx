@@ -7,7 +7,7 @@ export default function PersonalizedRecommendations() {
       <div className="w-full max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8 flex flex-col md:flex-row items-center gap-16 md:gap-20">
         
         {/* Left: Mockup Visual */}
-        <div className="flex-[0.5] w-full transform scale-90 sm:scale-100 origin-left relative flex justify-center order-2 md:order-1">
+        <div className="flex-[0.5] w-full transform scale-90 sm:scale-100 origin-left relative flex justify-center order-2 md:order-1 py-12 md:py-0">
           <div className="mockup-container relative">
 
             {/* Main Background Panel (simulating chat/app interface) */}
@@ -79,7 +79,7 @@ export default function PersonalizedRecommendations() {
 
         {/* Right: Text Content */}
         <div className="flex-[0.5] text-center md:text-left order-1 md:order-2 mt-8 md:mt-0">
-          <h2 className="m-0 text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 tracking-tight leading-tight mb-4">Get personalized<br className="hidden md:block" />recommendations.</h2>
+          <h2 className="m-0 text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 tracking-tight leading-tight mb-4">Get personalized <br className="hidden md:block" /> recommendations.</h2>
           <p className="m-0 text-base sm:text-lg text-gray-500 font-medium leading-relaxed">
             We'll provide personalized, actionable travel experiences based on your preferences. Check out photos, reviews, maps and more. Favorite the items you like and add them to your trip plan.
           </p>

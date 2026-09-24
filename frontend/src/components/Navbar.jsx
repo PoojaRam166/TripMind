@@ -20,7 +20,8 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className="navbar" style={{ boxShadow: scrolled ? '0 2px 20px rgba(0,0,0,0.06)' : 'none' }}>
+    <>
+      <nav className="navbar" style={{ boxShadow: scrolled ? '0 2px 20px rgba(0,0,0,0.06)' : 'none' }}>
       <div className="navbar-inner">
         {/* Logo */}
         <a href="/" className="navbar-logo">
@@ -52,11 +53,22 @@ export default function Navbar() {
             {isMobileMenuOpen ? <X size={28} color="var(--color-ink)" /> : <Menu size={28} color="var(--color-ink)" />}
           </button>
         </div>
-      </div>
-
+      </nav>
       {/* Mobile Menu Dropdown (Full Screen Overlay) */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-[900] bg-white pt-[80px] flex flex-col h-[100dvh] overflow-y-auto">
+        <div className="fixed inset-0 z-[9999] bg-white flex flex-col h-[100dvh] overflow-y-auto">
+          {/* Header inside overlay to close */}
+          <div className="flex items-center justify-between px-8 py-5 border-b border-gray-100">
+             <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-full bg-[var(--color-gold)] flex items-center justify-center">
+                  <Plane size={18} color="var(--color-ink)" strokeWidth={2.5} />
+                </div>
+                <span className="text-[17px] font-bold text-gray-900 tracking-tight">TripMind</span>
+             </div>
+             <button onClick={() => setIsMobileMenuOpen(false)} className="p-1">
+                <X size={28} color="var(--color-ink)" />
+             </button>
+          </div>
           <div className="flex flex-col gap-6 px-6 py-8">
             {navLinks.map((link) => (
               <a 
@@ -88,6 +100,6 @@ export default function Navbar() {
           </div>
         </div>
       )}
-    </nav>
+    </>
   );
 }

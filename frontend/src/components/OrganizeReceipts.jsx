@@ -7,7 +7,7 @@ export default function OrganizeReceipts() {
       <div className="w-full max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8 flex flex-col md:flex-row items-center gap-12 md:gap-20">
         
         {/* Left: Mockup Visual */}
-        <div className="flex-1 flex justify-center items-center w-full transform scale-90 sm:scale-100 origin-center relative">
+        <div className="flex-1 flex justify-center items-center w-full transform scale-90 sm:scale-100 origin-center relative py-8 md:py-0">
           
           {/* Main Mobile Panel */}
           <div className="w-[280px] h-[480px] bg-white rounded-[36px] border-[8px] border-[var(--color-ink)] relative overflow-hidden p-4 sm:p-6 shadow-2xl z-10">
