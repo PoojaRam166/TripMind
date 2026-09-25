@@ -47,7 +47,7 @@ export default function BudgetTrackerPage() {
             
             <div style={{ display: 'flex', alignItems: 'center', gap: '20px', position: 'relative', zIndex: 1 }}>
               <div style={{ width: '64px', height: '64px', borderRadius: '16px', background: 'var(--color-gold)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <CreditCard size={32} color="var(--color-ink)" fill="var(--color-ink)" />
+                <CreditCard size={32} color="var(--color-ink)" fill="var(--color-gold)" />
               </div>
               <div>
                 <h1 style={{ fontSize: '28px', fontWeight: 900, color: 'white', margin: '0 0 4px', letterSpacing: '-0.5px' }}>
