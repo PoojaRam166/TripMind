@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {
   Home,
@@ -12,12 +12,27 @@ import {
   Bell,
   Settings,
   Sparkles,
-  Plane
+  Plane,
+  ChevronDown,
+  User,
+  LogOut
 } from 'lucide-react';
 
 export default function Sidebar({ activeRoute }) {
   const location = useLocation();
   const navigate = useNavigate();
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const profileRef = useRef(null);
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (profileRef.current && !profileRef.current.contains(event.target)) {
+        setIsProfileOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   const pathToLabel = {
     '/home': 'Home',
@@ -87,18 +102,42 @@ export default function Sidebar({ activeRoute }) {
         })}
       </nav>
 
-      <div className="flex items-center gap-3 p-5 px-6 border-t border-white/10 mt-auto">
-        <div className="w-11 h-11 bg-gradient-to-br from-[var(--color-gold)] to-[#a67c00] rounded-full flex items-center justify-center font-extrabold text-lg text-[var(--color-ink)] shadow-[0_4px_12px_rgba(212,175,55,0.3)]">
-          P
-        </div>
-        <div className="flex-1">
-          <p className="text-[15px] font-bold text-white m-0 tracking-tight">Poojitha</p>
-          <div className="mt-0.5">
-            <span className="text-[11px] text-white/60 font-medium">
-              Free Plan
-            </span>
+      <div className="relative" ref={profileRef}>
+        <div 
+          onClick={() => setIsProfileOpen(!isProfileOpen)}
+          className="flex items-center gap-3 p-5 px-6 border-t border-white/10 mt-auto cursor-pointer hover:bg-white/5 transition-colors"
+        >
+          <div className="w-11 h-11 bg-gradient-to-br from-[var(--color-gold)] to-[#a67c00] rounded-full flex items-center justify-center font-extrabold text-lg text-[var(--color-ink)] shadow-[0_4px_12px_rgba(212,175,55,0.3)]">
+            P
           </div>
+          <div className="flex-1">
+            <p className="text-[15px] font-bold text-white m-0 tracking-tight">Poojitha</p>
+            <div className="mt-0.5">
+              <span className="text-[11px] text-white/60 font-medium">
+                Free Plan
+              </span>
+            </div>
+          </div>
+          <ChevronDown size={18} className="text-white/60" style={{ transform: isProfileOpen ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.2s' }} />
         </div>
+
+        {/* Profile Dropdown */}
+        {isProfileOpen && (
+          <div className="absolute bottom-full left-4 right-4 mb-2 bg-[var(--color-surface)] rounded-xl shadow-xl border border-[var(--color-border)] p-2 z-50">
+            <div className="flex flex-col gap-1">
+              <button onClick={() => navigate('/settings')} className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-gray-50 text-[14px] font-semibold text-[var(--color-text-primary)] w-full text-left transition-colors">
+                <User size={16} /> My Profile
+              </button>
+              <button onClick={() => navigate('/settings')} className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-gray-50 text-[14px] font-semibold text-[var(--color-text-primary)] w-full text-left transition-colors">
+                <Settings size={16} /> Settings
+              </button>
+              <div className="h-px bg-[var(--color-border-light)] my-1"></div>
+              <button onClick={() => navigate('/login')} className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-red-50 text-[14px] font-semibold text-red-600 w-full text-left transition-colors">
+                <LogOut size={16} /> Log out
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
