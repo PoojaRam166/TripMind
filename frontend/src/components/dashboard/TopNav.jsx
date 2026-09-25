@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Search, Bell, Home, Compass, MapPin, Briefcase, Settings, User, LogOut, Bookmark, Menu, X } from 'lucide-react';
+import { Search, Bell, Home, Compass, MapPin, Briefcase, Settings, User, LogOut, Bookmark, Menu, X, Plane } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import SearchModal from './SearchModal';
 import Sidebar from './Sidebar';
