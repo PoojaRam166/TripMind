@@ -98,15 +98,15 @@ export default function SavedPlacesPage() {
   });
 
   return (
-    <div className="dashboard-layout page-transition">
-      <aside className="hidden md:flex flex-col bg-black border-r border-white/10 h-screen overflow-y-auto z-20 relative">
+    <div className="dashboard-layout">
+      <aside className="dashboard-sidebar">
         <Sidebar activeRoute="Saved Places" />
       </aside>
 
-      <main className="flex flex-col h-screen overflow-y-auto overflow-x-hidden relative">
+      <main className="dashboard-main">
         <TopNav title="Saved Places" />
 
-        <div className="flex-1 w-full max-w-[1300px] mx-auto p-4 sm:p-6 lg:p-10 pb-[100px] md:pb-10">
+        <div className="dashboard-content" style={{ maxWidth: '1300px', margin: '0 auto', width: '100%' }}>
 
           {/* ── Gold Hero Banner ── */}
           <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl p-6 sm:p-10 md:p-12 mb-6 sm:mb-8" style={{ background: 'linear-gradient(135deg, var(--color-ink) 0%, #1a1400 60%, #2a1f00 100%)' }}>
