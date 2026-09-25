@@ -54,6 +54,12 @@ export default function TopNav({ title: propTitle }) {
         }}
       >
         <div style={{ flex: 1, maxWidth: '600px', display: 'flex', alignItems: 'center', gap: '16px' }}>
+          {/* Mobile Logo (hidden on desktop) */}
+          <div className="md:hidden" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <div style={{ width: 28, height: 28, background: 'var(--color-gold)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+              <Plane size={16} color="var(--color-ink)" strokeWidth={2.5} />
+            </div>
+          </div>
           <h2 style={{ fontSize: '20px', fontWeight: 'bold', margin: 0, marginRight: '24px', color: 'var(--color-text-primary)', whiteSpace: 'nowrap' }}>
             {title}
           </h2>
