@@ -70,7 +70,7 @@ export default function BudgetTrackerPage() {
           </div>
 
           {/* ── Summary Cards ── */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px', marginBottom: '24px' }}>
+          <div className="budget-summary-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px', marginBottom: '24px' }}>
             {/* Total Budget */}
             <div style={{ background: 'var(--color-surface)', padding: '24px', borderRadius: '16px', border: '1px solid var(--color-border)', boxShadow: 'var(--shadow-sm)' }}>
               <div style={{ fontSize: '13px', fontWeight: 700, color: 'var(--color-text-secondary)', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '12px' }}>
@@ -120,7 +120,7 @@ export default function BudgetTrackerPage() {
           </div>
 
           {/* ── Two Columns ── */}
-          <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '24px' }}>
+          <div className="budget-main-grid" style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '24px' }}>
             
             {/* Category Breakdown */}
             <div style={{ background: 'var(--color-surface)', borderRadius: '16px', border: '1px solid var(--color-border)', boxShadow: 'var(--shadow-sm)', padding: '24px' }}>
@@ -132,7 +132,7 @@ export default function BudgetTrackerPage() {
               </div>
 
               {/* Table Header */}
-              <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', paddingBottom: '16px', borderBottom: '1px solid var(--color-border-light)', fontSize: '12px', fontWeight: 700, color: 'var(--color-text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+              <div className="budget-table-grid" style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', paddingBottom: '16px', borderBottom: '1px solid var(--color-border-light)', fontSize: '12px', fontWeight: 700, color: 'var(--color-text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
                 <div>Category</div>
                 <div>Planned</div>
                 <div>Actual</div>
@@ -146,7 +146,7 @@ export default function BudgetTrackerPage() {
                 { name: 'Food', color: '#ff9800', planned: '5,000', actual: '4,200', diff: '+₹800', diffColor: '#4caf50' },
                 { name: 'Activities', color: '#009688', planned: '4,000', actual: '3,200', diff: '+₹800', diffColor: '#4caf50' },
               ].map((row, i) => (
-                <div key={i} style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', padding: '20px 0', borderBottom: i === 3 ? 'none' : '1px solid var(--color-border-light)', fontSize: '14px', alignItems: 'center' }}>
+                <div key={i} className="budget-table-grid" style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', padding: '20px 0', borderBottom: i === 3 ? 'none' : '1px solid var(--color-border-light)', fontSize: '14px', alignItems: 'center' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '12px', fontWeight: 600, color: 'var(--color-text-primary)' }}>
                     <div style={{ width: '12px', height: '12px', borderRadius: '4px', background: row.color }} />
                     {row.name}

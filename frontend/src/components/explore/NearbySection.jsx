@@ -22,7 +22,7 @@ export default function NearbySection() {
         </button>
       </div>
       
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, ), ))', gap: '20px' }}>
         {nearby.map(dest => (
           <div key={dest.id} className="hover-lift cursor-pointer group" style={{ 
             display: 'flex', gap: '16px', background: 'var(--color-surface)', 

@@ -66,7 +66,7 @@ export default function ExploreDestinations() {
         ))}
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: '20px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, ), ))', gap: '20px' }}>
         {filteredDestinations.length === 0 ? (
           <p style={{ color: 'var(--color-text-secondary)' }}>No destinations found for this category.</p>
         ) : (

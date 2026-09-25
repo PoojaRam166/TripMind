@@ -45,7 +45,7 @@ export default function HomePage() {
                 <UpcomingTrips />
               </div>
 
-              <div className="animate-fade-in-up delay-200" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '40px', marginBottom: '40px' }}>
+              <div className="animate-fade-in-up delay-200" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, ), ))', gap: '40px', marginBottom: '40px' }}>
                 <ContinuePlanning />
                 <RecentActivity />
               </div>

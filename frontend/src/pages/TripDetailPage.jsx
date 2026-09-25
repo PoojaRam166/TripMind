@@ -430,7 +430,7 @@ const PlacesTab = () => {
         </div>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '24px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, ), ))', gap: '24px' }}>
         {sortedPlaces.map((place, idx) => (
           <div key={idx} className="hover-lift" style={{ background: 'var(--color-surface)', borderRadius: '20px', border: '1px solid var(--color-border)', overflow: 'hidden', display: 'flex', flexDirection: 'column', boxShadow: 'var(--shadow-sm)' }}>
             <div style={{ height: '200px', backgroundImage: `url('${place.image}')`, backgroundSize: 'cover', backgroundPosition: 'center', position: 'relative' }}>
@@ -586,7 +586,7 @@ const HotelsTab = () => {
         </div>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '24px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, ), ))', gap: '24px' }}>
         {sortedHotels.map((hotel, idx) => (
           <div key={idx} className="hover-lift" style={{ background: 'var(--color-surface)', borderRadius: '20px', border: '1px solid var(--color-border)', overflow: 'hidden', display: 'flex', flexDirection: 'column', boxShadow: 'var(--shadow-sm)' }}>
             <div style={{ height: '220px', backgroundImage: `url('${hotel.image}')`, backgroundSize: 'cover', backgroundPosition: 'center', position: 'relative' }}>

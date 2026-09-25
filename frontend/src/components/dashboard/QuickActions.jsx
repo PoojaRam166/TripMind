@@ -14,7 +14,7 @@ export default function QuickActions() {
       <h3 style={{ fontSize: '18px', fontWeight: 'bold', color: 'var(--color-text-primary)', margin: '0 0 20px 0' }}>
         Plan faster
       </h3>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, ), ))', gap: '20px' }}>
         {actions.map(action => (
           <button key={action.label} className="hover-lift group" style={{
             display: 'flex',

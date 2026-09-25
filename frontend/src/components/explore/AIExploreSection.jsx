@@ -147,7 +147,7 @@ export default function AIExploreSection() {
               <button onClick={() => setResult(null)} className="btn btn-outline-gold btn-sm" style={{ background: 'var(--color-surface)' }}>Close</button>
             </div>
             
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, ), ))', gap: '24px' }}>
               {result.destinations.map(dest => (
                 <div key={dest.name} style={{ display: 'flex', gap: '16px', padding: '16px', background: 'var(--color-surface)', border: '1px solid rgba(0,0,0,0.05)', borderRadius: '16px', alignItems: 'center', boxShadow: 'var(--shadow-sm)' }} className="hover-lift cursor-pointer">
                   <img src={dest.image} alt={dest.name} style={{ width: '80px', height: '80px', borderRadius: '12px', objectFit: 'cover' }} />

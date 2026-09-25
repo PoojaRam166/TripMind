@@ -127,7 +127,7 @@ export default function DestinationGrid({ destinations, sort, setSort, viewMode,
           </button>
         </div>
       ) : (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '24px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, ), ))', gap: '24px' }}>
           {destinations.map(dest => (
             <DestinationCard key={dest.id} dest={dest} onSave={onSave} />
           ))}

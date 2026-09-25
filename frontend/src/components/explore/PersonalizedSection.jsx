@@ -17,7 +17,7 @@ export default function PersonalizedSection() {
         <Sparkles size={24} className="text-[var(--color-gold)] fill-[var(--color-gold)] shrink-0" /> Picked for you
       </h3>
       
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '24px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, ), ))', gap: '24px' }}>
         {picks.map(dest => (
           <div key={dest.id} className="hover-lift group cursor-pointer" style={{ 
             background: 'var(--color-surface)', 

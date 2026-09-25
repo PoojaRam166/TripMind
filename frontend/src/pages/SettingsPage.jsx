@@ -148,7 +148,7 @@ const tabs = [
             </div>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '250px 1fr', gap: '32px' }}>
+          <div className="settings-layout-grid" style={{ display: 'grid', gridTemplateColumns: '250px 1fr', gap: '32px' }}>
             
             {/* ── Sidebar Tabs ── */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
@@ -211,7 +211,7 @@ const tabs = [
                     </div>
                   </div>
 
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: '24px' }}>
+                  <div className="settings-form-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: '24px' }}>
                     <div>
                       <label style={{ display: 'block', fontSize: '13px', fontWeight: 700, color: 'var(--color-text-secondary)', marginBottom: '8px' }}>First Name</label>
                       <input type="text" defaultValue="Poojitha" style={{ width: '100%', padding: '12px 16px', borderRadius: '12px', border: '1px solid var(--color-border)', fontSize: '14px', outline: 'none' }} />
@@ -399,7 +399,7 @@ const tabs = [
                 <div>
                   <h3 style={{ margin: '0 0 24px 0', fontSize: '20px', fontWeight: 'bold', color: 'var(--color-text-primary)' }}>General Preferences</h3>
                   
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: '24px' }}>
+                  <div className="settings-form-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: '24px' }}>
                     <div>
                       <label style={{ display: 'block', fontSize: '13px', fontWeight: 700, color: 'var(--color-text-secondary)', marginBottom: '8px' }}>Language</label>
                       <CustomSelect 
