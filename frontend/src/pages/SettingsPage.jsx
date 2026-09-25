@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Settings, User, Bell, Shield, Key, Moon, Globe, LogOut, Check, ChevronDown } from 'lucide-react';
+import { Settings, User, Bell, Shield, Key, Moon, Globe, LogOut, Check, ChevronDown, CreditCard } from 'lucide-react';
 import Sidebar from '../components/dashboard/Sidebar';
 import TopNav from '../components/dashboard/TopNav';
 
@@ -96,8 +96,9 @@ export default function SettingsPage() {
     }
   };
 
-  const tabs = [
+const tabs = [
     { id: 'account', label: 'Account', icon: User },
+    { id: 'billing', label: 'Billing & Subscription', icon: CreditCard },
     { id: 'notifications', label: 'Notifications', icon: Bell },
     { id: 'privacy', label: 'Privacy & Security', icon: Shield },
     { id: 'preferences', label: 'Preferences', icon: Globe },
@@ -178,10 +179,10 @@ export default function SettingsPage() {
               
               {activeTab === 'account' && (
                 <div>
-                  <h3 style={{ margin: '0 0 24px 0', fontSize: '20px', fontWeight: 'bold', color: (typeof loginStatus !== 'undefined' && loginStatus === 'success') || (typeof registerStatus !== 'undefined' && registerStatus === 'success') || (typeof status !== 'undefined' && status === 'loading') ? 'var(--color-gold)' : 'var(--color-text-primary)' }}>Account Information</h3>
+                  <h3 style={{ margin: '0 0 24px 0', fontSize: '20px', fontWeight: 'bold', color: 'var(--color-text-primary)' }}>Account Information</h3>
                   
                   <div style={{ display: 'flex', alignItems: 'center', gap: '24px', marginBottom: '32px' }}>
-                    <div style={{ width: '80px', height: '80px', borderRadius: '50%', background: 'var(--color-gold)', color: (typeof loginStatus !== 'undefined' && loginStatus === 'success') || (typeof registerStatus !== 'undefined' && registerStatus === 'success') || (typeof status !== 'undefined' && status === 'loading') ? 'var(--color-gold)' : 'var(--color-text-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '28px', fontWeight: 800, overflow: 'hidden' }}>
+                    <div style={{ width: '80px', height: '80px', borderRadius: '50%', background: 'var(--color-gold)', color: 'var(--color-ink)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '28px', fontWeight: 800, overflow: 'hidden' }}>
                       {profilePic ? (
                         <img src={profilePic} alt="Profile" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       ) : (
@@ -223,6 +224,30 @@ export default function SettingsPage() {
                     <input type="email" defaultValue="poojitha@example.com" style={{ width: '100%', padding: '12px 16px', borderRadius: '12px', border: '1px solid var(--color-border)', fontSize: '14px', outline: 'none' }} />
                   </div>
 
+                  <div style={{ padding: '24px', background: 'var(--color-surface-2)', borderRadius: '16px', border: '1px solid var(--color-border)', marginBottom: '32px' }}>
+                    <h4 style={{ margin: '0 0 16px 0', fontSize: '16px', fontWeight: 'bold' }}>Connected Accounts</h4>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                        <div style={{ width: '40px', height: '40px', background: '#fff', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: 'var(--shadow-sm)' }}>G</div>
+                        <div>
+                          <div style={{ fontWeight: 600, fontSize: '14px' }}>Google</div>
+                          <div style={{ fontSize: '12px', color: 'var(--color-text-secondary)' }}>Connected</div>
+                        </div>
+                      </div>
+                      <button className="btn btn-sm" style={{ background: 'white', border: '1px solid var(--color-border)' }}>Disconnect</button>
+                    </div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                        <div style={{ width: '40px', height: '40px', background: '#000', color: '#fff', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: 'var(--shadow-sm)' }}>A</div>
+                        <div>
+                          <div style={{ fontWeight: 600, fontSize: '14px' }}>Apple</div>
+                          <div style={{ fontSize: '12px', color: 'var(--color-text-secondary)' }}>Not connected</div>
+                        </div>
+                      </div>
+                      <button className="btn btn-sm" style={{ background: 'white', border: '1px solid var(--color-border)' }}>Connect</button>
+                    </div>
+                  </div>
+
                   <div style={{ display: 'flex', justifyContent: 'flex-end', paddingTop: '24px', borderTop: '1px solid var(--color-border-light)' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
                       {saveStatus === 'saved' && (
@@ -243,14 +268,44 @@ export default function SettingsPage() {
                 </div>
               )}
 
+              {activeTab === 'billing' && (
+                <div>
+                  <h3 style={{ margin: '0 0 24px 0', fontSize: '20px', fontWeight: 'bold', color: 'var(--color-text-primary)' }}>Billing & Subscription</h3>
+                  
+                  <div style={{ background: 'linear-gradient(to right, #111, #333)', color: 'white', padding: '32px', borderRadius: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '32px', boxShadow: '0 10px 30px rgba(0,0,0,0.15)' }}>
+                    <div>
+                      <div style={{ display: 'inline-block', background: 'var(--color-gold)', color: 'var(--color-ink)', fontSize: '11px', fontWeight: 800, padding: '4px 10px', borderRadius: '99px', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '12px' }}>Active Plan</div>
+                      <h4 style={{ margin: '0 0 8px 0', fontSize: '24px', fontWeight: 900 }}>TripMind Pro</h4>
+                      <p style={{ margin: 0, color: 'rgba(255,255,255,0.7)', fontSize: '14px' }}>Unlimited AI itineraries & premium recommendations.</p>
+                    </div>
+                    <div style={{ textAlign: 'right' }}>
+                      <div style={{ fontSize: '28px', fontWeight: 800 }}>$9<span style={{ fontSize: '14px', fontWeight: 500, color: 'rgba(255,255,255,0.6)' }}>/mo</span></div>
+                      <div style={{ fontSize: '12px', color: 'rgba(255,255,255,0.6)', marginTop: '4px' }}>Renews Oct 24, 2026</div>
+                    </div>
+                  </div>
+
+                  <h4 style={{ margin: '0 0 16px 0', fontSize: '16px', fontWeight: 'bold' }}>Payment Method</h4>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '20px', border: '1px solid var(--color-border)', borderRadius: '16px', marginBottom: '32px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+                      <div style={{ width: '48px', height: '32px', background: '#f3f4f6', borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, color: '#1a1f36', fontSize: '12px' }}>VISA</div>
+                      <div>
+                        <div style={{ fontWeight: 600, fontSize: '14px' }}>Visa ending in 4242</div>
+                        <div style={{ fontSize: '12px', color: 'var(--color-text-secondary)' }}>Expires 12/28</div>
+                      </div>
+                    </div>
+                    <button className="btn btn-sm" style={{ background: 'white', border: '1px solid var(--color-border)' }}>Update</button>
+                  </div>
+                </div>
+              )}
+
               {activeTab === 'notifications' && (
                 <div>
-                  <h3 style={{ margin: '0 0 24px 0', fontSize: '20px', fontWeight: 'bold', color: (typeof loginStatus !== 'undefined' && loginStatus === 'success') || (typeof registerStatus !== 'undefined' && registerStatus === 'success') || (typeof status !== 'undefined' && status === 'loading') ? 'var(--color-gold)' : 'var(--color-text-primary)' }}>Notification Preferences</h3>
+                  <h3 style={{ margin: '0 0 24px 0', fontSize: '20px', fontWeight: 'bold', color: 'var(--color-text-primary)' }}>Notification Preferences</h3>
                   
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginBottom: '32px' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                       <div>
-                        <div style={{ fontWeight: 600, color: (typeof loginStatus !== 'undefined' && loginStatus === 'success') || (typeof registerStatus !== 'undefined' && registerStatus === 'success') || (typeof status !== 'undefined' && status === 'loading') ? 'var(--color-gold)' : 'var(--color-text-primary)', marginBottom: '4px' }}>Email Notifications</div>
+                        <div style={{ fontWeight: 600, color: 'var(--color-text-primary)', marginBottom: '4px' }}>Email Notifications</div>
                         <div style={{ fontSize: '13px', color: 'var(--color-text-secondary)' }}>Receive emails about your trip updates.</div>
                       </div>
                       <div onClick={() => setNotificationsEnabled(!notificationsEnabled)} style={{ width: '44px', height: '24px', background: notificationsEnabled ? 'var(--color-gold)' : 'var(--color-border)', borderRadius: '99px', position: 'relative', cursor: 'pointer', transition: 'all 0.2s' }}>
@@ -260,7 +315,7 @@ export default function SettingsPage() {
                     <hr style={{ border: 'none', borderTop: '1px solid var(--color-border-light)', margin: 0 }} />
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                       <div>
-                        <div style={{ fontWeight: 600, color: (typeof loginStatus !== 'undefined' && loginStatus === 'success') || (typeof registerStatus !== 'undefined' && registerStatus === 'success') || (typeof status !== 'undefined' && status === 'loading') ? 'var(--color-gold)' : 'var(--color-text-primary)', marginBottom: '4px' }}>Push Notifications</div>
+                        <div style={{ fontWeight: 600, color: 'var(--color-text-primary)', marginBottom: '4px' }}>Push Notifications</div>
                         <div style={{ fontSize: '13px', color: 'var(--color-text-secondary)' }}>Receive alerts in your browser.</div>
                       </div>
                       <div onClick={() => setPushEnabled(!pushEnabled)} style={{ width: '44px', height: '24px', background: pushEnabled ? 'var(--color-gold)' : 'var(--color-border)', borderRadius: '99px', position: 'relative', cursor: 'pointer', transition: 'all 0.2s' }}>
@@ -273,14 +328,24 @@ export default function SettingsPage() {
 
               {activeTab === 'privacy' && (
                 <div>
-                  <h3 style={{ margin: '0 0 24px 0', fontSize: '20px', fontWeight: 'bold', color: (typeof loginStatus !== 'undefined' && loginStatus === 'success') || (typeof registerStatus !== 'undefined' && registerStatus === 'success') || (typeof status !== 'undefined' && status === 'loading') ? 'var(--color-gold)' : 'var(--color-text-primary)' }}>Privacy & Security</h3>
+                  <h3 style={{ margin: '0 0 24px 0', fontSize: '20px', fontWeight: 'bold', color: 'var(--color-text-primary)' }}>Privacy & Security</h3>
+                  
+                  <div style={{ padding: '24px', background: 'var(--color-surface-2)', borderRadius: '16px', border: '1px solid var(--color-border)', marginBottom: '32px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                      <div style={{ fontWeight: 600, fontSize: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}><Shield size={18} color="var(--color-gold-dark)" /> Two-Factor Authentication</div>
+                      <span style={{ padding: '4px 10px', background: '#dcfce7', color: '#166534', fontSize: '12px', fontWeight: 700, borderRadius: '99px' }}>Enabled</span>
+                    </div>
+                    <p style={{ margin: '0 0 16px 0', fontSize: '13px', color: 'var(--color-text-secondary)' }}>Add an extra layer of security to your account.</p>
+                    <button className="btn btn-sm" style={{ background: 'white', border: '1px solid var(--color-border)' }}>Manage 2FA</button>
+                  </div>
+
                   <div style={{ marginBottom: '24px' }}>
-                    <div style={{ fontWeight: 600, color: (typeof loginStatus !== 'undefined' && loginStatus === 'success') || (typeof registerStatus !== 'undefined' && registerStatus === 'success') || (typeof status !== 'undefined' && status === 'loading') ? 'var(--color-gold)' : 'var(--color-text-primary)', marginBottom: '8px' }}>Change Password</div>
+                    <div style={{ fontWeight: 600, color: 'var(--color-text-primary)', marginBottom: '8px' }}>Change Password</div>
                     
                     {!isUpdatingPassword ? (
                       <button 
                         onClick={() => setIsUpdatingPassword(true)}
-                        style={{ background: 'var(--color-surface-2)', color: (typeof loginStatus !== 'undefined' && loginStatus === 'success') || (typeof registerStatus !== 'undefined' && registerStatus === 'success') || (typeof status !== 'undefined' && status === 'loading') ? 'var(--color-gold)' : 'var(--color-text-primary)', border: '1px solid var(--color-border)', padding: '10px 16px', borderRadius: '8px', fontSize: '14px', fontWeight: 600, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px' }} 
+                        style={{ background: 'var(--color-surface-2)', color: 'var(--color-text-primary)', border: '1px solid var(--color-border)', padding: '10px 16px', borderRadius: '8px', fontSize: '14px', fontWeight: 600, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px' }} 
                         className="hover:bg-gray-100"
                       >
                         <Key size={16} /> Update Password
@@ -304,7 +369,7 @@ export default function SettingsPage() {
                         <div style={{ display: 'flex', gap: '12px' }}>
                           <button 
                             onClick={() => setIsUpdatingPassword(false)}
-                            style={{ background: 'var(--color-gold)', color: (typeof loginStatus !== 'undefined' && loginStatus === 'success') || (typeof registerStatus !== 'undefined' && registerStatus === 'success') || (typeof status !== 'undefined' && status === 'loading') ? 'var(--color-gold)' : 'var(--color-text-primary)', border: 'none', padding: '10px 20px', borderRadius: '99px', fontSize: '14px', fontWeight: 700, cursor: 'pointer' }}
+                            style={{ background: 'var(--color-gold)', color: 'var(--color-ink)', border: 'none', padding: '10px 20px', borderRadius: '99px', fontSize: '14px', fontWeight: 700, cursor: 'pointer' }}
                             className="hover-lift"
                           >
                             Save Password
@@ -325,7 +390,7 @@ export default function SettingsPage() {
 
               {activeTab === 'preferences' && (
                 <div>
-                  <h3 style={{ margin: '0 0 24px 0', fontSize: '20px', fontWeight: 'bold', color: (typeof loginStatus !== 'undefined' && loginStatus === 'success') || (typeof registerStatus !== 'undefined' && registerStatus === 'success') || (typeof status !== 'undefined' && status === 'loading') ? 'var(--color-gold)' : 'var(--color-text-primary)' }}>General Preferences</h3>
+                  <h3 style={{ margin: '0 0 24px 0', fontSize: '20px', fontWeight: 'bold', color: 'var(--color-text-primary)' }}>General Preferences</h3>
                   
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: '24px' }}>
                     <div>
@@ -345,6 +410,17 @@ export default function SettingsPage() {
                         onChange={setCurrency}
                         placeholder="Select a currency"
                       />
+                    </div>
+                  </div>
+
+                  <div style={{ marginBottom: '32px' }}>
+                    <label style={{ display: 'block', fontSize: '13px', fontWeight: 700, color: 'var(--color-text-secondary)', marginBottom: '12px' }}>Theme Preference</label>
+                    <div style={{ display: 'flex', gap: '12px' }}>
+                      {['Light', 'Dark', 'System'].map(theme => (
+                        <button key={theme} style={{ padding: '8px 16px', borderRadius: '8px', border: theme === 'Light' ? '1.5px solid var(--color-gold)' : '1px solid var(--color-border)', background: theme === 'Light' ? 'var(--color-gold-muted)' : 'white', fontWeight: theme === 'Light' ? 700 : 500, fontSize: '13px', cursor: 'pointer', color: theme === 'Light' ? 'var(--color-gold-dark)' : 'var(--color-text-secondary)' }}>
+                          {theme}
+                        </button>
+                      ))}
                     </div>
                   </div>
 
