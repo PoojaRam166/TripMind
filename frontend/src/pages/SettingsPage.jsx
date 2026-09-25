@@ -234,7 +234,7 @@ const tabs = [
                           <div style={{ fontSize: '12px', color: 'var(--color-text-secondary)' }}>Connected</div>
                         </div>
                       </div>
-                      <button className="btn btn-sm" style={{ background: 'white', border: '1px solid var(--color-border)' }}>Disconnect</button>
+                      <button className="btn btn-sm btn-hover-gold">Disconnect</button>
                     </div>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
@@ -244,7 +244,7 @@ const tabs = [
                           <div style={{ fontSize: '12px', color: 'var(--color-text-secondary)' }}>Not connected</div>
                         </div>
                       </div>
-                      <button className="btn btn-sm" style={{ background: 'white', border: '1px solid var(--color-border)' }}>Connect</button>
+                      <button className="btn btn-sm btn-hover-gold">Connect</button>
                     </div>
                   </div>
 
@@ -293,7 +293,7 @@ const tabs = [
                         <div style={{ fontSize: '12px', color: 'var(--color-text-secondary)' }}>Expires 12/28</div>
                       </div>
                     </div>
-                    <button className="btn btn-sm" style={{ background: 'white', border: '1px solid var(--color-border)' }}>Update</button>
+                    <button className="btn btn-sm btn-hover-gold">Update</button>
                   </div>
                 </div>
               )}
@@ -336,7 +336,7 @@ const tabs = [
                       <span style={{ padding: '4px 10px', background: '#dcfce7', color: '#166534', fontSize: '12px', fontWeight: 700, borderRadius: '99px' }}>Enabled</span>
                     </div>
                     <p style={{ margin: '0 0 16px 0', fontSize: '13px', color: 'var(--color-text-secondary)' }}>Add an extra layer of security to your account.</p>
-                    <button className="btn btn-sm" style={{ background: 'white', border: '1px solid var(--color-border)' }}>Manage 2FA</button>
+                    <button className="btn btn-sm btn-hover-gold">Manage 2FA</button>
                   </div>
 
                   <div style={{ marginBottom: '24px' }}>

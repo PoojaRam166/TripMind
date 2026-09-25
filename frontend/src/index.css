@@ -424,6 +424,20 @@ html[data-theme="dark"] .toast {
   border-color: white;
 }
 
+.btn-hover-gold {
+  background: white;
+  color: var(--color-ink);
+  border: 1px solid var(--color-border);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-hover-gold:hover {
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+  color: var(--color-ink);
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
+  transform: translateY(-1px);
+}
+
 /* ============================================================
    HERO SECTION
    ============================================================ */
