@@ -75,6 +75,9 @@ export default function SettingsPage() {
   const [language, setLanguage] = useState('English');
   const [currency, setCurrency] = useState('INR (₹)');
   const [profilePic, setProfilePic] = useState(null);
+  const [is2FAEnabled, setIs2FAEnabled] = useState(true);
+  const [show2FAModal, setShow2FAModal] = useState(false);
+  const [twoFactorCode, setTwoFactorCode] = useState('');
   const fileInputRef = useRef(null);
 
   const handleSave = () => {
@@ -333,10 +336,14 @@ const tabs = [
                   <div style={{ padding: '24px', background: 'var(--color-surface-2)', borderRadius: '16px', border: '1px solid var(--color-border)', marginBottom: '32px' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
                       <div style={{ fontWeight: 600, fontSize: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}><Shield size={18} color="var(--color-gold-dark)" /> Two-Factor Authentication</div>
-                      <span style={{ padding: '4px 10px', background: '#dcfce7', color: '#166534', fontSize: '12px', fontWeight: 700, borderRadius: '99px' }}>Enabled</span>
+                      {is2FAEnabled ? (
+                        <span style={{ padding: '4px 10px', background: '#dcfce7', color: '#166534', fontSize: '12px', fontWeight: 700, borderRadius: '99px' }}>Enabled</span>
+                      ) : (
+                        <span style={{ padding: '4px 10px', background: '#f1f5f9', color: '#475569', fontSize: '12px', fontWeight: 700, borderRadius: '99px' }}>Disabled</span>
+                      )}
                     </div>
                     <p style={{ margin: '0 0 16px 0', fontSize: '13px', color: 'var(--color-text-secondary)' }}>Add an extra layer of security to your account.</p>
-                    <button className="btn btn-sm btn-hover-gold">Manage 2FA</button>
+                    <button onClick={() => setShow2FAModal(true)} className="btn btn-sm btn-hover-gold">Manage 2FA</button>
                   </div>
 
                   <div style={{ marginBottom: '24px' }}>
@@ -439,6 +446,74 @@ const tabs = [
 
         </div>
       </main>
+
+      {/* ── 2FA Modal ── */}
+      {show2FAModal && (
+        <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(15,23,42,0.6)', zIndex: 9999, display: 'flex', justifyContent: 'center', alignItems: 'center', backdropFilter: 'blur(4px)' }}>
+          <div style={{ background: 'var(--color-surface)', width: '440px', maxWidth: '90%', borderRadius: '24px', padding: '32px', boxShadow: 'var(--shadow-xl)', position: 'relative' }}>
+            <button onClick={() => { setShow2FAModal(false); setTwoFactorCode(''); }} style={{ position: 'absolute', top: '24px', right: '24px', background: 'var(--color-surface-2)', border: 'none', cursor: 'pointer', width: '32px', height: '32px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }} className="hover:bg-gray-200">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            
+            <h2 style={{ margin: '0 0 8px 0', fontSize: '24px', fontWeight: 800 }}>Two-Factor Authentication</h2>
+            
+            {!is2FAEnabled ? (
+              <>
+                <p style={{ margin: '0 0 24px 0', fontSize: '14px', color: 'var(--color-text-secondary)', lineHeight: 1.5 }}>Scan this QR code with your authenticator app (like Google Authenticator or Authy) and enter the 6-digit code below.</p>
+                <div style={{ background: 'white', padding: '16px', borderRadius: '16px', border: '1px solid var(--color-border)', width: 'fit-content', margin: '0 auto 24px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=otpauth://totp/TripMind:poojitha%40example.com?secret=JBSWY3DPEHPK3PXP&issuer=TripMind" alt="QR Code" style={{ width: '150px', height: '150px' }} />
+                </div>
+                <div style={{ marginBottom: '24px' }}>
+                  <label style={{ display: 'block', fontSize: '13px', fontWeight: 700, color: 'var(--color-text-secondary)', marginBottom: '8px' }}>Authenticator Code</label>
+                  <input 
+                    type="text" 
+                    placeholder="000000"
+                    maxLength={6}
+                    value={twoFactorCode}
+                    onChange={(e) => setTwoFactorCode(e.target.value.replace(/\D/g, ''))}
+                    style={{ width: '100%', padding: '12px 16px', borderRadius: '12px', border: '1px solid var(--color-border)', fontSize: '16px', letterSpacing: '4px', textAlign: 'center', fontWeight: 700, outline: 'none' }} 
+                  />
+                </div>
+                <button 
+                  onClick={() => {
+                    if (twoFactorCode.length === 6) {
+                      setIs2FAEnabled(true);
+                      setShow2FAModal(false);
+                      setTwoFactorCode('');
+                    }
+                  }}
+                  disabled={twoFactorCode.length !== 6}
+                  className="btn btn-champ" 
+                  style={{ width: '100%', padding: '14px', borderRadius: '12px', fontSize: '15px', opacity: twoFactorCode.length === 6 ? 1 : 0.6 }}
+                >
+                  Verify and Enable
+                </button>
+              </>
+            ) : (
+              <>
+                <p style={{ margin: '0 0 24px 0', fontSize: '14px', color: 'var(--color-text-secondary)', lineHeight: 1.5 }}>Two-factor authentication is currently enabled on your account. Are you sure you want to disable it?</p>
+                <button 
+                  onClick={() => {
+                    setIs2FAEnabled(false);
+                    setShow2FAModal(false);
+                  }}
+                  className="btn" 
+                  style={{ width: '100%', background: '#fee2e2', color: '#b91c1c', border: 'none', padding: '14px', borderRadius: '12px', fontSize: '15px', fontWeight: 700, marginBottom: '12px', cursor: 'pointer' }}
+                >
+                  Yes, Disable 2FA
+                </button>
+                <button 
+                  onClick={() => setShow2FAModal(false)}
+                  className="btn" 
+                  style={{ width: '100%', background: 'white', color: 'var(--color-text-primary)', border: '1px solid var(--color-border)', padding: '14px', borderRadius: '12px', fontSize: '15px', fontWeight: 600, cursor: 'pointer' }}
+                >
+                  Cancel
+                </button>
+              </>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
