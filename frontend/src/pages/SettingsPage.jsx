@@ -413,16 +413,6 @@ const tabs = [
                     </div>
                   </div>
 
-                  <div style={{ marginBottom: '32px' }}>
-                    <label style={{ display: 'block', fontSize: '13px', fontWeight: 700, color: 'var(--color-text-secondary)', marginBottom: '12px' }}>Theme Preference</label>
-                    <div style={{ display: 'flex', gap: '12px' }}>
-                      {['Light', 'Dark', 'System'].map(theme => (
-                        <button key={theme} style={{ padding: '8px 16px', borderRadius: '8px', border: theme === 'Light' ? '1.5px solid var(--color-gold)' : '1px solid var(--color-border)', background: theme === 'Light' ? 'var(--color-gold-muted)' : 'white', fontWeight: theme === 'Light' ? 700 : 500, fontSize: '13px', cursor: 'pointer', color: theme === 'Light' ? 'var(--color-gold-dark)' : 'var(--color-text-secondary)' }}>
-                          {theme}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
 
                   <div style={{ display: 'flex', justifyContent: 'flex-end', paddingTop: '24px', borderTop: '1px solid var(--color-border-light)' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
