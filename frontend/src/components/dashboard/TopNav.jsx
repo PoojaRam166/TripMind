@@ -200,7 +200,7 @@ export default function TopNav({ title: propTitle }) {
       </div>
 
       {/* ── Mobile Bottom Navigation Bar ── */}
-      <nav className="mobile-bottom-nav" style={isMobileMenuOpen ? { display: 'none' } : {}}>
+      <nav className={`mobile-bottom-nav ${isMobileMenuOpen ? 'nav-hidden' : ''}`} style={isMobileMenuOpen ? { display: 'none' } : {}}>
         {mobileNavItems.map((item) => {
           const isActive =
             (currentPath === item.path ||
@@ -228,11 +228,11 @@ export default function TopNav({ title: propTitle }) {
 
       {/* Full-Screen Mobile Drawer for remaining sidebar options */}
       {isMobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 z-50 bg-black pt-safe-top overflow-y-auto">
-          <button onClick={() => setIsMobileMenuOpen(false)} style={{ position: 'absolute', top: '24px', right: '24px', background: 'var(--color-surface-2)', border: 'none', color: 'var(--color-ink)', zIndex: 51, padding: '8px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
+        <div className="md:hidden fixed inset-0 z-[99999] bg-black pt-safe-top overflow-y-auto" style={{ zIndex: 99999 }}>
+          <button onClick={() => setIsMobileMenuOpen(false)} style={{ position: 'absolute', top: '24px', right: '24px', background: 'var(--color-surface-2)', border: 'none', color: 'var(--color-ink)', zIndex: 100000, padding: '8px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
             <X size={20} strokeWidth={2.5} />
           </button>
-          <Sidebar activeRoute={title} />
+          <Sidebar activeRoute={title} onClose={() => setIsMobileMenuOpen(false)} />
         </div>
       )}
 

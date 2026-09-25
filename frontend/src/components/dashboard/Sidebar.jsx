@@ -19,7 +19,7 @@ import {
   HelpCircle
 } from 'lucide-react';
 
-export default function Sidebar({ activeRoute }) {
+export default function Sidebar({ activeRoute, onClose }) {
   const location = useLocation();
   const navigate = useNavigate();
   const [isProfileOpen, setIsProfileOpen] = useState(false);
@@ -68,7 +68,7 @@ export default function Sidebar({ activeRoute }) {
     <div className="flex flex-col h-full bg-black">
       {/* Logo */}
       <div className="p-8 pb-6">
-        <Link to="/" className="flex items-center gap-2 no-underline text-[var(--color-gold)]">
+        <Link to="/" onClick={() => onClose && onClose()} className="flex items-center gap-2 no-underline text-[var(--color-gold)]">
           <div className="w-8 h-8 bg-[var(--color-gold)] rounded-full flex items-center justify-center">
             <Plane size={18} color="var(--color-ink)" strokeWidth={2.5} />
           </div>
@@ -85,6 +85,7 @@ export default function Sidebar({ activeRoute }) {
               key={item.label}
               onClick={(e) => {
                 if (item.path && item.path !== '#') {
+                  if (onClose) onClose();
                   navigate(item.path);
                 }
               }}
