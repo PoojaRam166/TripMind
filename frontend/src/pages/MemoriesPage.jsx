@@ -149,7 +149,7 @@ export default function MemoriesPage() {
           {/* ── Masonry Grid ── */}
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, ), ))',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 320px), 1fr)',
             gridAutoRows: '200px',
             gap: '24px'
           }}>

@@ -237,7 +237,7 @@ export default function PlanTripPage() {
               </SectionCard>
 
               <SectionCard title="Trip details" icon={<MapPin size={16} />}>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, ), ))', gap: '24px' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: '24px' }}>
                   <div>
                     <label style={{ display: 'block', fontSize: '13px', fontWeight: 700, color: 'var(--color-text-secondary)', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Destination</label>
                     <input
@@ -309,7 +309,7 @@ export default function PlanTripPage() {
                 />
               </SectionCard>
 
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, ), ))', gap: '24px', marginBottom: '40px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: '24px', marginBottom: '40px' }}>
                 <SectionCard title="Transport">
                   <PillGroup 
                     options={['Flight', 'Train', 'Bus', 'Car', 'Flexible']}

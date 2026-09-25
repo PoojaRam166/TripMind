@@ -295,7 +295,7 @@ function StatsBanner({ trips }) {
   ];
 
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, ), ))', gap: '16px', marginBottom: '28px' }}>
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: '16px', marginBottom: '28px' }}>
       {stats.map(s => (
         <div key={s.label} className="hover-lift" style={{
           background: s.bg,
@@ -459,7 +459,7 @@ export default function MyTripsPage() {
 
           {/* Grid */}
           {filtered.length > 0 ? (
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, ), ))', gap: '24px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 320px), 1fr)', gap: '24px' }}>
               {filtered.map(trip => (
                 <TripCard key={trip.id} trip={trip} navigate={navigate} />
               ))}
