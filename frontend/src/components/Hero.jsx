@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { MapPin, ArrowRight, Search } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const chips = ['Goa', 'Bali', 'Paris', 'Manali', 'Tokyo'];
 
@@ -56,9 +57,9 @@ export default function Hero() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
             />
-            <button className="btn btn-champ btn-md" style={{ borderRadius: 14, padding: '10px 22px' }}>
+            <Link to="/plan" className="btn btn-champ btn-md" style={{ borderRadius: 14, padding: '10px 22px', textDecoration: 'none' }}>
               Plan My Trip
-            </button>
+            </Link>
           </div>
 
           {/* Chips */}

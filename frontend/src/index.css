@@ -97,6 +97,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Prevents fixed navbar from hiding section titles */
 }
 
 body {
@@ -1293,13 +1294,19 @@ html[data-theme="dark"] .toast {
 .mockup-mobile {
   width: 280px;
   height: 480px;
-  background: white;
+  background: var(--color-gold);
   border-radius: 36px;
   border: 8px solid var(--color-ink);
   position: relative;
   overflow: hidden;
   padding: 24px 16px;
   z-index: 5;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mockup-mobile:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 48px rgba(212, 175, 55, 0.3);
 }
 
 .mobile-header {

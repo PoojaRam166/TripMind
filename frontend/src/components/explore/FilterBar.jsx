@@ -134,12 +134,13 @@ export default function FilterBar({ filters, setFilters, aiRecommended, setAiRec
     <div className="filter-bar-container hide-scrollbar" style={{
       display: 'flex',
       alignItems: 'center',
-      flexWrap: 'nowrap',
-      overflowX: 'auto',
+      flexWrap: 'wrap',
       gap: '12px',
       padding: '16px 40px',
       borderBottom: '1px solid var(--color-border-light)',
-      background: 'var(--color-surface)'
+      background: 'var(--color-surface)',
+      position: 'relative',
+      zIndex: 50
     }}>
 
       {/* AI Recommended Toggle */}
