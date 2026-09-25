@@ -1982,6 +1982,13 @@ html[data-theme="dark"] .toast {
 
 /* ---- Mobile / Small Tablet (≤ 768px) ---- */
 @media (max-width: 768px) {
+  .mockup-container {
+    transform: scale(0.85);
+    transform-origin: center center;
+    height: 400px;
+    margin: 0 auto;
+  }
+
 
   /* ---- Public Navbar ---- */
   .navbar-nav {
@@ -2250,6 +2257,13 @@ html[data-theme="dark"] .toast {
 
 /* ---- Small Mobile (≤ 480px) ---- */
 @media (max-width: 480px) {
+  .mockup-container {
+    transform: scale(0.65);
+    transform-origin: top center;
+    height: 320px;
+    margin: 0 auto;
+  }
+
 
   /* Public navbar */
   .navbar-inner {
@@ -2273,10 +2287,7 @@ html[data-theme="dark"] .toast {
     padding: 6px 6px 6px 14px;
   }
 
-  .hero-images {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(3, 160px);
-  }
+  .hero-images { grid-template-columns: 1fr 1fr; grid-template-rows: 140px 140px; gap: 8px; }
 
   .hero-img-tall {
     grid-row: auto;
