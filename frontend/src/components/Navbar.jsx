@@ -86,7 +86,7 @@ export default function Navbar() {
               <Link 
                 to="/login" 
                 onClick={() => setIsMobileMenuOpen(false)} 
-                className="text-2xl font-bold text-gray-900 no-underline"
+                className="bg-white border-2 border-[var(--color-gold)] text-[var(--color-ink)] text-center rounded-full py-4 px-6 text-lg font-black shadow-sm no-underline mt-4 active:scale-95 transition-transform"
               >
                 Log In
               </Link>
