@@ -30,11 +30,10 @@ export default function TopNav({ title: propTitle }) {
   }
 
   const mobileNavItems = [
-    { label: 'Home',    icon: <Home size={20} />,      path: '/home' },
-    { label: 'Explore', icon: <Compass size={20} />,   path: '/explore' },
-    { label: 'Plan',    icon: <MapPin size={20} />,    path: '/plan' },
-    { label: 'Trips',   icon: <Briefcase size={20} />, path: '/trips' },
-    { label: 'Menu',    icon: <Menu size={20} />,      path: '#menu' },
+    { label: 'Home', icon: <Home size={20} />, path: '/home' },
+    { label: 'Explore', icon: <Compass size={20} />, path: '/explore' },
+    { label: 'Plan', icon: <MapPin size={20} />, path: '/plan' },
+    { label: 'Trips', icon: <Briefcase size={20} />, path: '/trips' }
   ];
 
   const currentPath = location.pathname;
@@ -54,8 +53,14 @@ export default function TopNav({ title: propTitle }) {
         }}
       >
         <div style={{ flex: 1, maxWidth: '600px', display: 'flex', alignItems: 'center', gap: '16px' }}>
-          {/* Mobile Logo (hidden on desktop) */}
-          <div className="md:hidden" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          {/* Mobile Menu Toggle & Logo (hidden on desktop) */}
+          <div className="md:hidden" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              style={{ background: 'transparent', border: 'none', padding: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--color-text-primary)', cursor: 'pointer' }}
+            >
+              <Menu size={24} />
+            </button>
             <div style={{ width: 28, height: 28, background: 'var(--color-gold)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
               <Plane size={16} color="var(--color-ink)" strokeWidth={2.5} />
             </div>
@@ -161,19 +166,19 @@ export default function TopNav({ title: propTitle }) {
             >
               P
             </div>
-            
+
             {isProfileOpen && (
-              <div style={{ 
-                position: 'absolute', top: 'calc(100% + 12px)', right: 0, 
-                width: '240px', background: 'var(--color-surface)', borderRadius: '16px', 
+              <div style={{
+                position: 'absolute', top: 'calc(100% + 12px)', right: 0,
+                width: '240px', background: 'var(--color-surface)', borderRadius: '16px',
                 boxShadow: '0 12px 32px rgba(0,0,0,0.12)', border: '1px solid var(--color-border-light)',
-                padding: '8px', zIndex: 100 
+                padding: '8px', zIndex: 100
               }}>
                 <div style={{ padding: '12px 16px', borderBottom: '1px solid var(--color-border-light)', marginBottom: '8px' }}>
                   <div style={{ fontSize: '15px', fontWeight: 800, color: 'var(--color-text-primary)' }}>Poojitha Reddy</div>
                   <div style={{ fontSize: '13px', color: 'var(--color-text-secondary)' }}>poojitha@example.com</div>
                 </div>
-                
+
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
                   <button onClick={() => navigate('/settings')} style={{ display: 'flex', alignItems: 'center', gap: '12px', padding: '10px 16px', borderRadius: '8px', background: 'transparent', border: 'none', width: '100%', textAlign: 'left', fontSize: '14px', fontWeight: 600, color: 'var(--color-text-primary)', cursor: 'pointer' }} className="hover:bg-gray-50">
                     <User size={16} /> My Profile
@@ -182,7 +187,7 @@ export default function TopNav({ title: propTitle }) {
                     <Settings size={16} /> Settings
                   </button>
                 </div>
-                
+
                 <div style={{ padding: '8px 0 0', marginTop: '8px', borderTop: '1px solid var(--color-border-light)' }}>
                   <button onClick={() => navigate('/login')} style={{ display: 'flex', alignItems: 'center', gap: '12px', padding: '10px 16px', borderRadius: '8px', background: 'transparent', border: 'none', width: '100%', textAlign: 'left', fontSize: '14px', fontWeight: 600, color: '#e53935', cursor: 'pointer' }} className="hover:bg-gray-50">
                     <LogOut size={16} /> Log out
@@ -199,7 +204,7 @@ export default function TopNav({ title: propTitle }) {
         {mobileNavItems.map((item) => {
           const isActive =
             (currentPath === item.path ||
-            (item.path !== '#' && item.path !== '#menu' && currentPath.startsWith(item.path))) ||
+              (item.path !== '#' && item.path !== '#menu' && currentPath.startsWith(item.path))) ||
             (item.path === '#menu' && isMobileMenuOpen);
           return (
             <button
@@ -223,7 +228,10 @@ export default function TopNav({ title: propTitle }) {
 
       {/* Full-Screen Mobile Drawer for remaining sidebar options */}
       {isMobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 z-50 bg-black pt-safe-top overflow-y-auto" style={{ top: 0, bottom: '60px' }}>
+        <div className="md:hidden fixed inset-0 z-50 bg-black pt-safe-top overflow-y-auto">
+          <button onClick={() => setIsMobileMenuOpen(false)} style={{ position: 'absolute', top: '24px', right: '24px', background: 'var(--color-surface-2)', border: 'none', color: 'var(--color-ink)', zIndex: 51, padding: '8px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
+            <X size={20} strokeWidth={2.5} />
+          </button>
           <Sidebar activeRoute={title} />
         </div>
       )}

@@ -285,7 +285,7 @@ const MapTab = () => {
       </div>
 
       {/* Map Visualization */}
-      <div style={{ flex: 1, background: 'linear-gradient(135deg, #e0e7ff 0%, #dcfce7 100%)', borderRadius: '24px', border: '1px solid var(--color-border)', position: 'relative', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <div className="map-visualization-mobile" style={{ flex: 1, background: 'linear-gradient(135deg, #e0e7ff 0%, #dcfce7 100%)', borderRadius: '24px', border: '1px solid var(--color-border)', position: 'relative', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         
         {/* Fake Map Markers */}
         <div className="map-placeholder-inner" style={{ position: 'relative', width: '100%', height: '100%', minHeight: '300px' }}>
@@ -300,11 +300,11 @@ const MapTab = () => {
         </div>
 
         {/* Map Actions */}
-        <div style={{ position: 'absolute', bottom: '32px', left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: '16px' }}>
-          <button style={{ background: 'var(--color-gold)', color: 'var(--color-text-primary)', border: 'none', padding: '12px 24px', borderRadius: '999px', fontWeight: 'bold', cursor: 'pointer', boxShadow: 'var(--shadow-md)' }}>
+        <div className="map-actions-mobile" style={{ position: 'absolute', bottom: '32px', left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: '16px' }}>
+          <button style={{ background: 'var(--color-gold)', color: 'var(--color-text-primary)', border: 'none', padding: '12px 24px', borderRadius: '999px', fontWeight: 'bold', cursor: 'pointer', boxShadow: 'var(--shadow-md)', whiteSpace: 'nowrap' }}>
             Optimize Route
           </button>
-          <button style={{ background: 'var(--color-surface)', color: 'var(--color-text-primary)', border: 'none', padding: '12px 24px', borderRadius: '999px', fontWeight: 'bold', cursor: 'pointer', boxShadow: 'var(--shadow-sm)' }}>
+          <button style={{ background: 'var(--color-surface)', color: 'var(--color-text-primary)', border: 'none', padding: '12px 24px', borderRadius: '999px', fontWeight: 'bold', cursor: 'pointer', boxShadow: 'var(--shadow-sm)', whiteSpace: 'nowrap' }}>
             + Add Stop
           </button>
         </div>
