@@ -8,6 +8,7 @@ import ResetPasswordPage from './pages/ResetPasswordPage';
 import HomePage from './pages/HomePage';
 import ExplorePage from './pages/ExplorePage';
 import PlanTripPage from './pages/PlanTripPage';
+import HelpPage from './pages/HelpPage';
 import TripDetailPage from './pages/TripDetailPage';
 import MyTripsPage from './pages/MyTripsPage';
 import SavedPlacesPage from './pages/SavedPlacesPage';
@@ -41,6 +42,7 @@ export default function App() {
             <Route path="/budget" element={<BudgetTrackerPage />} />
             <Route path="/notifications" element={<NotificationsPage />} />
             <Route path="/settings" element={<SettingsPage />} />
+            <Route path="/help" element={<HelpPage />} />
             <Route path="/assistant" element={<AssistantPage />} />
             <Route path="/trip/:id" element={<TripDetailPage />} />
             <Route path="/register" element={<RegisterPage />} />

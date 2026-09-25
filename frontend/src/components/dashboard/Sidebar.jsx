@@ -15,7 +15,8 @@ import {
   Plane,
   ChevronDown,
   User,
-  LogOut
+  LogOut,
+  HelpCircle
 } from 'lucide-react';
 
 export default function Sidebar({ activeRoute }) {
@@ -44,6 +45,7 @@ export default function Sidebar({ activeRoute }) {
     '/budget': 'Budget Tracker',
     '/notifications': 'Notifications',
     '/settings': 'Settings',
+    '/help': 'Help & Support',
     '/assistant': 'Travel Assistant',
   };
   const currentActive = activeRoute || pathToLabel[location.pathname] || 'Home';
@@ -58,6 +60,7 @@ export default function Sidebar({ activeRoute }) {
     { label: 'Memories', icon: <Camera size={18} />, path: '/memories' },
     { label: 'Budget Tracker', icon: <CreditCard size={18} />, path: '/budget' },
     { label: 'Notifications', icon: <Bell size={18} />, path: '/notifications' },
+    { label: 'Help & Support', icon: <HelpCircle size={18} />, path: '/help' },
     { label: 'Settings', icon: <Settings size={18} />, path: '/settings' },
   ];
 
