@@ -72,7 +72,7 @@ export default function BudgetTrackerPage() {
           {/* ── Summary Cards ── */}
           <div className="budget-summary-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px', marginBottom: '24px' }}>
             {/* Total Budget */}
-            <div style={{ background: 'var(--color-surface)', padding: '24px', borderRadius: '16px', border: '1px solid var(--color-border)', boxShadow: 'var(--shadow-sm)' }}>
+            <div style={{ background: 'linear-gradient(145deg, #fffbeb, #fde68a)', padding: '24px', borderRadius: '16px', border: '1px solid #fcd34d', boxShadow: 'var(--shadow-sm)' }}>
               <div style={{ fontSize: '13px', fontWeight: 700, color: 'var(--color-text-secondary)', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '12px' }}>
                 Total Budget
               </div>
