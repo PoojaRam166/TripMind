@@ -295,7 +295,7 @@ function StatsBanner({ trips }) {
   ];
 
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: '16px', marginBottom: '28px' }}>
+    <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 mb-7">
       {stats.map(s => (
         <div key={s.label} className="hover-lift" style={{
           background: s.bg,
