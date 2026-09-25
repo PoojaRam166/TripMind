@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Search, Bell, Home, Compass, MapPin, Briefcase, Settings, User, LogOut, Bookmark, Menu, X, Plane } from 'lucide-react';
+import { Search, Bell, Home, Compass, MapPin, Briefcase, Settings, User, LogOut, Bookmark, Menu, X, Plane, Sparkles } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import SearchModal from './SearchModal';
 import Sidebar from './Sidebar';
@@ -32,9 +32,9 @@ export default function TopNav({ title: propTitle }) {
   const mobileNavItems = [
     { label: 'Home',    icon: <Home size={20} />,      path: '/home' },
     { label: 'Explore', icon: <Compass size={20} />,   path: '/explore' },
+    { label: 'Assistant', icon: <Sparkles size={20} />, path: '/assistant' },
     { label: 'Plan',    icon: <MapPin size={20} />,    path: '/plan' },
     { label: 'Trips',   icon: <Briefcase size={20} />, path: '/trips' },
-    { label: 'Menu',    icon: <Menu size={20} />,      path: '#menu' },
   ];
 
   const currentPath = location.pathname;
@@ -54,8 +54,14 @@ export default function TopNav({ title: propTitle }) {
         }}
       >
         <div style={{ flex: 1, maxWidth: '600px', display: 'flex', alignItems: 'center', gap: '16px' }}>
-          {/* Mobile Logo (hidden on desktop) */}
-          <div className="md:hidden" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          {/* Mobile Menu & Logo (hidden on desktop) */}
+          <div className="md:hidden" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            <button 
+              onClick={() => setIsMobileMenuOpen(true)}
+              style={{ background: 'none', border: 'none', padding: '0', display: 'flex', alignItems: 'center', color: 'var(--color-text-primary)', cursor: 'pointer' }}
+            >
+              <Menu size={24} />
+            </button>
             <div style={{ width: 28, height: 28, background: 'var(--color-gold)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
               <Plane size={16} color="var(--color-ink)" strokeWidth={2.5} />
             </div>
@@ -223,8 +229,16 @@ export default function TopNav({ title: propTitle }) {
 
       {/* Full-Screen Mobile Drawer for remaining sidebar options */}
       {isMobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 z-50 bg-black pt-safe-top overflow-y-auto" style={{ top: 0, bottom: '60px' }}>
-          <Sidebar activeRoute={title} />
+        <div className="md:hidden fixed inset-0 z-[200] bg-black overflow-y-auto" style={{ top: 0, bottom: 0, paddingBottom: 'env(safe-area-inset-bottom)' }}>
+          <button 
+            onClick={() => setIsMobileMenuOpen(false)} 
+            style={{ position: 'absolute', top: '24px', right: '24px', background: 'rgba(255,255,255,0.1)', border: 'none', color: 'white', padding: '8px', borderRadius: '50%', zIndex: 101, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}
+          >
+            <X size={24} />
+          </button>
+          <div onClick={() => setIsMobileMenuOpen(false)}>
+            <Sidebar activeRoute={title} />
+          </div>
         </div>
       )}
 
