@@ -24,15 +24,15 @@ export default function HelpPage() {
   ];
 
   return (
-    <div className="dashboard-layout page-transition">
-      <aside className="hidden md:flex flex-col bg-black border-r border-white/10 h-screen overflow-y-auto z-20 relative">
+    <div className="dashboard-layout">
+      <aside className="dashboard-sidebar">
         <Sidebar activeRoute="Help & Support" />
       </aside>
 
-      <main className="flex flex-col h-screen overflow-y-auto overflow-x-hidden relative">
+      <main className="dashboard-main">
         <TopNav title="Help & Support" />
 
-        <div className="flex-1 w-full max-w-4xl mx-auto p-4 sm:p-6 lg:p-10 pb-[100px] md:pb-10">
+        <div className="dashboard-content" style={{ maxWidth: '1400px', margin: '0 auto', width: '100%' }}>
           
           <div className="mb-8">
             <h1 className="text-3xl font-extrabold text-[var(--color-text-primary)] mb-2">Help & Support</h1>
