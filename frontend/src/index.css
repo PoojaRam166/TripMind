@@ -2393,8 +2393,7 @@ html[data-theme="dark"] .toast {
   height: 100vh;
   width: 100vw;
   overflow: hidden;
-  background-color: var(--color-surface-2);
-  /* Extremely subtle grey background for depth */
+  background-color: #D4AE78; /* Premium light gold background */
 }
 
 /* Fixed Left Sidebar */
