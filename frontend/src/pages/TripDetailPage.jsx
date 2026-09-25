@@ -33,7 +33,7 @@ const OverviewTab = () => (
     <div>
       {/* Top Stats */}
       <div className="trip-stats-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '16px', marginBottom: '24px' }}>
-        <div style={{ background: 'var(--color-surface)', padding: '20px', borderRadius: '16px', border: '1px solid var(--color-border)' }}>
+        <div style={{ background: 'linear-gradient(145deg, #fffbeb, #fde68a)', padding: '20px', borderRadius: '16px', border: '1px solid #fcd34d' }}>
           <p style={{ fontSize: '11px', fontWeight: 800, color: 'var(--color-text-secondary)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '8px' }}>Estimated Cost</p>
           <p style={{ fontSize: '28px', fontWeight: 'bold', color: 'var(--color-text-primary)', margin: 0 }}>₹28,500</p>
         </div>
