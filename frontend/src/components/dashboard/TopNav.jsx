@@ -200,7 +200,7 @@ export default function TopNav({ title: propTitle }) {
       </div>
 
       {/* ── Mobile Bottom Navigation Bar ── */}
-      <nav className="mobile-bottom-nav">
+      <nav className="mobile-bottom-nav" style={isMobileMenuOpen ? { display: 'none' } : {}}>
         {mobileNavItems.map((item) => {
           const isActive =
             (currentPath === item.path ||

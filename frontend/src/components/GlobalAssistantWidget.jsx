@@ -204,15 +204,24 @@ export default function GlobalAssistantWidget() {
           70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
           100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
         }
-        @media (max-width: 480px) {
+        @media (max-width: 768px) {
           .assistant-widget-container {
-            bottom: 90px !important;
+            bottom: 76px !important;
             right: 16px !important;
           }
           .assistant-chat-panel {
-            width: calc(100vw - 32px) !important;
-            bottom: 140px !important;
-            right: 0 !important;
+            position: fixed !important;
+            top: 16px !important;
+            bottom: 76px !important;
+            left: 12px !important;
+            right: 12px !important;
+            width: auto !important;
+            max-width: calc(100vw - 24px) !important;
+            height: auto !important;
+            max-height: none !important;
+            border-radius: 20px !important;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3) !important;
+            z-index: 10000 !important;
           }
         }
       `}} />
